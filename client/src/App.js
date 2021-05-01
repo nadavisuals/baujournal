@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import DayList from "./pages/day-list";
+import ProjectList from "./pages/project-list";
+import ProjectCreate from "./pages/project-create";
+import ProjectEdit from "./pages/project-edit";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="container">
+        
+        <Route path="/" exact component={DayList} />
+        <Route path="/projects" exact component={ProjectList} />
+        <Route path="/create" component={ProjectCreate} />
+        <Route path="/edit/:id" component={ProjectEdit} />
+
+      </div>
+    </Router>
   );
 }
 
