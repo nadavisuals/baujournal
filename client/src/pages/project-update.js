@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from "../components/navbar.component";
 
-export default class ProjectEdit extends Component {
+export default class ProjecUpdate extends Component {
   render() {
     return (
       <div>
