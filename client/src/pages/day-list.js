@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import NavBar from "../components/navbar.component";
 
-export default class ProjectEdit extends Component {
+export default class DayList extends Component {
   render() {
     return (
       <div>
           <NavBar />
-        <p>You are on the Project Edit component!</p>
+        <p>You are on the Day List</p>
       </div>
     )
   }
