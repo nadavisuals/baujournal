@@ -6,6 +6,7 @@ export default class DayList extends Component {
     return (
       <div>
           <NavBar />
+          <br/>
         <p>You are on the Day List</p>
       </div>
     )
