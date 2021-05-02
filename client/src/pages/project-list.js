@@ -10,6 +10,10 @@ const Project = props => (
     <td>{props.projects.projectNr}</td>
     <td>{props.projects.projectTitle}</td>
     <td>
+    {/* <Button className="mb-3" href={"/update-project/"+props.projects._id}variant="primary">Bearbeiten</Button>
+    &nbsp;
+    <Button className="mb-3" href={"/projects"}variant="primary" onClick={() => { props.deleteProject(props.projects._id) }}>Löschen</Button> */}
+
       <Link to={"/update-project/"+props.projects._id}>Bearbeiten</Link> | <a href="#" onClick={() => { props.deleteProject(props.projects._id) }}>Löschen</a>
     </td>
   </tr>
@@ -43,8 +47,14 @@ export default class ProjectList extends Component {
     })
   }
 
+//   projectList() {
+//     return this.state.projects.map(currentproject => {
+//       return <Project projects={currentproject} deleteProject={this.deleteProject} key={currentproject._id}/>;
+//     })
+//   }
+
   projectList() {
-    return this.state.projects.map(currentproject => {
+    return this.state.projects.sort((a, b) => a.projectNr > b.projectNr ? 1 : -1).map(currentproject => {
       return <Project projects={currentproject} deleteProject={this.deleteProject} key={currentproject._id}/>;
     })
   }

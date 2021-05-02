@@ -18,18 +18,7 @@ export default class ProjectCreate extends Component {
         }
       }
 
-  componentDidMount() {
-    axios.get('http://localhost:5001/projects/'+this.props.match.params.id)
-      .then(response => {
-        this.setState({
-          projectNr: response.data.projectNr,
-          projectTitle: response.data.projectTitle,
-        })   
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-    }
+
 
     onChangeProjectNr(e) {
         this.setState({
