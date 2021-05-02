@@ -5,18 +5,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import DayList from "./pages/day-list";
 import ProjectList from "./pages/project-list";
 import ProjectCreate from "./pages/project-create";
-import ProjectEdit from "./pages/project-edit";
+import ProjectUpdate from "./pages/project-update";
 
 
 function App() {
   return (
     <Router>
       <div className="container">
-        
+      
         <Route path="/" exact component={DayList} />
         <Route path="/projects" exact component={ProjectList} />
-        <Route path="/create" component={ProjectCreate} />
-        <Route path="/edit/:id" component={ProjectEdit} />
+        <Route path="/create-project" component={ProjectCreate} />
+        <Route path="/update-project/:id" component={ProjectUpdate} />
 
       </div>
     </Router>

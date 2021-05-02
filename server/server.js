@@ -18,7 +18,7 @@ const connection = mongoose.connection;connection.once('open', () => {
 })
 
 const projectsRouter = require('./routes/projects');
-const daysRouter = require('./routes/days');
+//const daysRouter = require('./routes/days');
 app.use('/projects', projectsRouter);
 //app.use('/days', daysRouter);
 

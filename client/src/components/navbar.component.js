@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
+import "./navbar.css"
 
 export default class NavBar extends Component {
 
@@ -15,32 +16,3 @@ export default class NavBar extends Component {
         );
     }
 }
-
-
-/* import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-
-export default class Navbar extends Component {
-
-  render() {
-    return (
-      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-        <Link to="/" className="navbar-brand">BauJournal</Link>
-        <div className="collpase navbar-collapse">
-        <ul className="navbar-nav mr-auto">
-          <li className="navbar-item">
-          <Link to="/" className="nav-link">Project List</Link>
-          </li>
-          <li className="navbar-item">
-          <Link to="/create" className="nav-link">Create Project</Link>
-          </li>
-          <li className="navbar-item">
-          <Link to="/edit:id" className="nav-link">Edit Project</Link>
-          </li>
-        </ul>
-        </div>
-      </nav>
-    );
-  }
-}
- */
