@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import DayList from "./pages/day-list";
+import DayUpdate from "./pages/day-update";
 import ProjectList from "./pages/project-list";
 import ProjectCreate from "./pages/project-create";
 import ProjectUpdate from "./pages/project-update";
@@ -17,6 +18,7 @@ function App() {
         <Route path="/projects" exact component={ProjectList} />
         <Route path="/create-project" component={ProjectCreate} />
         <Route path="/update-project/:id" component={ProjectUpdate} />
+        <Route path="/update-day/:id" component={DayUpdate} />
 
       </div>
     </Router>
