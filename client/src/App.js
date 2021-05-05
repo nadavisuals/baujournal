@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import DayList from "./pages/day-list";
+import DayChooseProject from "./pages/day-choose-project";
+import DayProjectDetails from "./pages/day-project-details";
 import DayUpdate from "./pages/day-update";
 import ProjectList from "./pages/project-list";
 import ProjectCreate from "./pages/project-create";
@@ -14,7 +15,8 @@ function App() {
     <Router>
       <div className="container">
       
-        <Route path="/" exact component={DayList} />
+        <Route path="/" exact component={DayChooseProject} />
+        <Route path="/day-project-details" exact component={DayProjectDetails} />
         <Route path="/projects" exact component={ProjectList} />
         <Route path="/create-project" component={ProjectCreate} />
         <Route path="/update-project/:id" component={ProjectUpdate} />

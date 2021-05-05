@@ -3,6 +3,7 @@ import { Form, Row, Col, Button, Accordion, Card } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import NavBar from "../components/navbar.component";
 
+
 export default class DayList extends Component {
   render() {
     return (
