@@ -11,10 +11,37 @@ export default class DayList extends Component {
           <br/>
          <div className="container content">
         <Form>
-          
+          <div>
+
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Project wählen..
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Sonne</a>
+                  <a class="dropdown-item" href="#">Regen</a>
+                  <a class="dropdown-item" href="#">Schnee</a>
+                </div>
+              </div>
+
+        <br></br>
+
+        <div className="form-group"> 
+              <label><b>Projekt Nr:&nbsp;</b></label>
+              <label>MFH XYZ</label>
+        </div>
+
+         <div className="form-group"> 
+              <label><b>Projekt Titel:&nbsp;</b></label>
+              <label>MFH XYZ</label>
+        </div> 
+        <p></p>
+      </div>
+
+
           <Form.Group>
             <Link>
-              <Button variant="dark">Neuen Tag erstellen</Button>
+              <Button variant="primary">Neuen Tag erstellen</Button>
             </Link>
           </Form.Group>
 
@@ -82,7 +109,7 @@ export default class DayList extends Component {
                           <Row>
                             <Col className="d-flex justify-content-end">
                               <Link
-                                to=""
+                                to={"/update-day/:id"}
                               >
                                 <Button
                                   className="p-1"
