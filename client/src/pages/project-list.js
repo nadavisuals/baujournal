@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Button, Container } from 'react-bootstrap';
-import NavBar from "../components/navbar.component";
+import NavBar from "../components/NavBar";
 
 
 const Project = props => (

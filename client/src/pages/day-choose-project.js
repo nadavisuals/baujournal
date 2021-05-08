@@ -1,16 +1,19 @@
-import React, { Component } from 'react';
+import React from "react";
+import NavBar from "../components/NavBar";
 import DropDown from "../components/DropDown";
-import NavBar from "../components/navbar.component";
 
-export default class DayChooseProject extends Component {
-  render() {
-    return (
-      <div>
-        <NavBar />
-        <DropDown />
+const DayChooseProject = () => {
+
+  return (
+    <div>
+      <NavBar />
+      <div className="container content">
+        <DropDown/>
       </div>
 
+      <div></div>
+    </div>
+  );
+};
 
-    )
-  }
-}
+export default DayChooseProject;
