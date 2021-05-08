@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Container, Button } from 'react-bootstrap';
-import NavBar from "../components/navbar.component";
+import NavBar from "../components/NavBar";
 
 export default class ProjectCreate extends Component {
 

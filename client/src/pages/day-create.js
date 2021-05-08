@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavBar from "../components/navbar.component";
+import NavBar from "../components/NavBar";
 
 export default class DayCreate extends Component {
   render() {

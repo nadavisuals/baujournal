@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Button, Container } from 'react-bootstrap';
-import NavBar from "../components/navbar.component";
+import NavBar from "../components/NavBar";
 
 
 const Project = props => (
@@ -53,11 +53,17 @@ export default class ProjectList extends Component {
 //     })
 //   }
 
-  projectList() {
-    return this.state.projects.sort((a, b) => a.projectNr > b.projectNr ? 1 : -1).map(currentproject => {
-      return <Project projects={currentproject} deleteProject={this.deleteProject} key={currentproject._id}/>;
-    })
-  }
+projectList() {
+  return this.state.projects.sort((a, b) => a.projectNr - b.projectNr).map(currentproject => {
+    return <Project projects={currentproject} deleteProject={this.deleteProject} key={currentproject._id}/>;
+  })
+}
+
+  // projectList() {
+  //   return this.state.projects.sort((a, b) => a.projectNr > b.projectNr ? 1 : -1).map(currentproject => {
+  //     return <Project projects={currentproject} deleteProject={this.deleteProject} key={currentproject._id}/>;
+  //   })
+  // }
 
 
 
@@ -69,7 +75,7 @@ export default class ProjectList extends Component {
         <br/>
           <h5>Projekt Manager</h5>
           <div style={{ borderTop: "1px solid lightgray ", marginBottom: 20 }}></div>
-          <Button className="mb-3" href="/create-project" variant="primary">Projekt hinzufügen</Button>
+          <Button className="mb-3" href="/create-project"variant="primary">Projekt hinzufügen</Button>
           
           <table className="table">
             <thead className="thead-light">
