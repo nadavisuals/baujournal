@@ -128,7 +128,7 @@ const DayList = (props) => {
                             <Col className="d-flex justify-content-end">
                               <Link
                                 to={
-                                  "/edit-day/" +
+                                  "/update-day/" +
                                   item.projectNr +
                                   "/" +
                                   projectTitle +
