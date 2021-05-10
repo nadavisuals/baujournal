@@ -1,4 +1,5 @@
 
+
 import React, { useState } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import NavBar from "../components/NavBar";
@@ -6,7 +7,7 @@ import DropDown from "../components/DropDown";
 import axios from "axios";
 import constants from "../constants/constants";
 import { Link, useParams, useHistory } from "react-router-dom";
-
+//import ErrorNotice from "../components/ErrorNotice";
 
 const DayCreate = () => {
   const history = useHistory();
@@ -41,6 +42,7 @@ const DayCreate = () => {
       safety: safety,
     };
 
+    console.log("date: ");
 
     axios.post(constants.backend_url + "/days/add", NewDay).then((res) => {
       setError(res.data.msg);
@@ -71,7 +73,7 @@ const DayCreate = () => {
           <Form.Group>
             <Row>
               <Col>
-                <Form.Label>Time from:</Form.Label>
+                <Form.Label>Uhrzeit von:</Form.Label>
                 <input
                   onChange={(e) => setTimeFrom(e.target.value)}
                   style={{ width: "40%" }}
@@ -80,7 +82,7 @@ const DayCreate = () => {
                 />
               </Col>
               <Col>
-                <Form.Label>Until:</Form.Label>
+                <Form.Label>Uhrzeit bis</Form.Label>
                 <input
                   onChange={(e) => setTimeUntill(e.target.value)}
                   style={{ width: "40%" }}
@@ -91,20 +93,20 @@ const DayCreate = () => {
             </Row>
           </Form.Group>
           <Form.Group style={{ maxWidth: "360px" }}>
-            <Form.Label>Weather:</Form.Label>
+            <Form.Label>Wetter:</Form.Label>
 
             <select
               onChange={(e) => setWeather(e.target.value)}
               className="custom-select custom-select-sm mb-3"
             >
-              <option value={"Sunny"}>Sunny</option>
-              <option value={"Cloudy"}>Cloudy</option>
-              <option value={"Rain"}>Rain</option>
-              <option value={"Snow"}>Snow</option>
+              <option value={"Sunny"}>Sonnig</option>
+              <option value={"Cloudy"}>Bewölkt</option>
+              <option value={"Rain"}>Regen</option>
+              <option value={"Snow"}>Schnee</option>
             </select>
           </Form.Group>
           <Form.Group style={{ maxWidth: "360px" }}>
-            <Form.Label>Temperature Outside C&#730;:</Form.Label>
+            <Form.Label>Aussenemperatur C&#730;:</Form.Label>
             <Form.Control
               type="number"
               placeholder="..."
@@ -112,7 +114,7 @@ const DayCreate = () => {
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Workers:</Form.Label>
+            <Form.Label>Anwesende Firmen:</Form.Label>
             <Form.Control
               onChange={(e) => setWorkers(e.target.value)}
               type="text"
@@ -120,7 +122,7 @@ const DayCreate = () => {
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Work Progress:</Form.Label>
+            <Form.Label>Stand der Arbeit:</Form.Label>
             <Form.Control
               onChange={(e) => setWorkProgress(e.target.value)}
               as="textarea"
@@ -129,7 +131,7 @@ const DayCreate = () => {
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Work Planning:</Form.Label>
+            <Form.Label>Organisatorisches</Form.Label>
             <Form.Control
               onChange={(e) => setWorkPlaning(e.target.value)}
               as="textarea"
@@ -138,7 +140,7 @@ const DayCreate = () => {
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Safety:</Form.Label>
+            <Form.Label>BauKG:</Form.Label>
             <Form.Control
               onChange={(e) => setSafety(e.target.value)}
               type="text"
@@ -153,7 +155,7 @@ const DayCreate = () => {
                 </Link>
                 <div className="p-2"></div>
                 <Button onClick={handleSubmit} variant="dark">
-                  Save
+                  Speichern
                 </Button>
               </Col>
             </Row>
@@ -167,7 +169,6 @@ const DayCreate = () => {
 };
 
 export default DayCreate;
-
 
 
 // import React, { Component } from 'react';
@@ -184,5 +185,4 @@ export default DayCreate;
 //     )
 //   }
 // }
-
 
