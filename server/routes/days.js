@@ -1,4 +1,3 @@
-
 const router = require("express").Router();
 let Day = require("../models/days.model");
 
@@ -51,7 +50,16 @@ router.post("/add", async (req, res) => {
   }
 });
 
+//** Delete Day Details **//
+router.route("/:id").delete((req, res) => {
+  Day.findByIdAndDelete(req.params.id)
+    .then(() => res.json("Day deleted."))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
 
 
 module.exports = router;
+
+
+
 
