@@ -1,16 +1,37 @@
 import React from "react";
 import {  Navbar, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
 
-            <Navbar bg="white" variant="light">
-                <Navbar.Brand href="/">PITBAUjOURNAL</Navbar.Brand>
-                <Nav className="ml-auto">
-                    <Nav.Link href="/">Baujournal</Nav.Link>
-                    <Nav.Link href="/projects">Projekte</Nav.Link>
-                </Nav>
-            </Navbar>
+        <Navbar
+        collapseOnSelect
+        expand="lg"
+        bg="dark"
+        variant="dark"
+        className="top-nav"
+      >
+        <div className="container">
+          <Navbar.Brand>
+            <Link to="/">PITBAUjOURNAL</Link>
+          </Navbar.Brand>
+  
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto"></Nav>
+            <Nav>
+              <Nav.Link>
+                <Link to="/">Baujournal</Link>
+              </Nav.Link>
+  
+              <Nav.Link className="active" eventKey={2}>
+                <Link to="/projects">Projekte</Link>
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </div>
+      </Navbar>
 
         );
     };
@@ -18,21 +39,18 @@ const NavBar = () => {
     export default NavBar;
 
 
-    // import React, { Component } from 'react';
-// import { Nav, Navbar } from 'react-bootstrap';
-// import "./navbar.css"
 
-// export default class NavBar extends Component {
-
-//     render() {
-//         return (
-//             <Navbar bg="white" variant="light">
-//                 <Navbar.Brand href="/">PITBAUjOURNAL</Navbar.Brand>
-//                 <Nav className="ml-auto">
-//                     <Nav.Link href="/">Baujournal</Nav.Link>
-//                     <Nav.Link href="/projects">Projekte</Nav.Link>
-//                 </Nav>
-//             </Navbar>
-//         );
-//     }
-// }
+    // const NavBar = () => {
+    //     return (
+    
+    //             <Navbar bg="white" variant="light">
+    //                 <Navbar.Brand href="/">PITBAUjOURNAL</Navbar.Brand>
+    //                 <Nav className="ml-auto">
+    //                     <Nav.Link href="/">Baujournal</Nav.Link>
+    //                     <Nav.Link href="/projects">Projekte</Nav.Link>
+    //                 </Nav>
+    //             </Navbar>
+    
+    //         );
+    //     };
+        

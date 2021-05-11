@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Form, Row, Col, Button } from "react-bootstrap";
+import { Form, Row, Col, Button, Container } from "react-bootstrap";
 import DropDown from "../components/DropDown";
 import axios from "axios";
 import constants from "../constants/constants";
@@ -8,6 +8,7 @@ import NavBar from "../components/NavBar";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "../css/style.css";
 
 class DayUpdate extends Component {
   static propTypes = {
@@ -96,7 +97,7 @@ class DayUpdate extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
         {/* Navbar */}
         <NavBar />
         {/* Page Content */}
@@ -272,7 +273,7 @@ class DayUpdate extends Component {
         </div>
         {/* Footer */}
         <div></div>
-      </div>
+      </Container>
     );
   }
 }
