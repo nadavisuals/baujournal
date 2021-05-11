@@ -1,12 +1,11 @@
-
-
 import React, { useState } from "react";
-import { Form, Row, Col, Button } from "react-bootstrap";
+import { Form, Row, Col, Button, Container } from "react-bootstrap";
 import NavBar from "../components/NavBar";
 import DropDown from "../components/DropDown";
 import axios from "axios";
 import constants from "../constants/constants";
 import { Link, useParams, useHistory } from "react-router-dom";
+import "../css/style.css";
 //import ErrorNotice from "../components/ErrorNotice";
 
 const DayCreate = () => {
@@ -53,7 +52,7 @@ const DayCreate = () => {
   };
 
   return (
-    <div>
+    <Container>
       <NavBar />
       {/* Page Content */}
       <div className="container content">
@@ -164,7 +163,8 @@ const DayCreate = () => {
       </div>
       {/* Footer */}
       <div></div>
-    </div>
+    
+    </Container>
   );
 };
 

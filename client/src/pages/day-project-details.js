@@ -1,12 +1,13 @@
-
 import React, { useEffect, useState } from 'react';
-import { Form, Row, Col, Button, Accordion, Card } from "react-bootstrap";
+import { Form, Row, Col, Button, Accordion, Card, Container } from "react-bootstrap";
 import NavBar from "../components/NavBar";
 import { Link, useParams } from "react-router-dom";
 import DropDown from "../components/DropDown";
 import axios from "axios";
 import constants from "../constants/constants";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "../css/style.css";
+
 
 const DayList = (props) => {
   let { projectNr, projectTitle } = useParams();
@@ -37,7 +38,7 @@ const DayList = (props) => {
   const currentPosts = allDays.slice(indexOfFirstPost, indexOfLastPost);
 
     return (
-      <div>
+      <Container>
           <NavBar />
           <br/>
          <div className="container content">
@@ -165,7 +166,7 @@ const DayList = (props) => {
           </Form.Group>
         </Form>
       </div>
-      </div>
+        </Container>
     )
   };
 

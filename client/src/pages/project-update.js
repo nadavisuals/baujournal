@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import NavBar from "../components/NavBar";
 import { Container } from 'react-bootstrap';
+import "../css/style.css";
 
 export default class ProjectUpdate extends Component {
 
@@ -74,11 +75,9 @@ export default class ProjectUpdate extends Component {
 
   render() {
     return (
-      <div>
-        <NavBar />
-        <br/>
-
         <Container>
+          <NavBar />
+        <br/>
         <div>
           <h5>Projekt anpassen</h5>
           <form onSubmit={this.onSubmit}>
@@ -99,7 +98,6 @@ export default class ProjectUpdate extends Component {
                 />
             </div>
 
-
             <div className="form-group">
               <input type="submit" value="Speichern" className="btn btn-primary" />
             </div>
@@ -107,7 +105,7 @@ export default class ProjectUpdate extends Component {
         </div>
         </Container>
 
-    </div>
+    
     )
   }
 }

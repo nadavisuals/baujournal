@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Container, Button } from 'react-bootstrap';
 import NavBar from "../components/NavBar";
+import "../css/style.css";
 
 export default class ProjectCreate extends Component {
 
@@ -50,10 +51,10 @@ export default class ProjectCreate extends Component {
 
   render() {
     return (
-      <div>
-          <NavBar />
-          <br/>
+      
           <Container>
+            <NavBar />
+          <br/>
           <div>
           <h5>Neues Projekt erfassen</h5>
           <form onSubmit={this.onSubmit}>
@@ -85,7 +86,7 @@ export default class ProjectCreate extends Component {
           </form>
         </div>
         </Container>
-      </div>
+      
     )
   }
 }
