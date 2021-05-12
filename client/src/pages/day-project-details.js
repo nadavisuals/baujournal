@@ -13,7 +13,7 @@ const DayList = (props) => {
 
   let { projectNr, projectTitle } = useParams();
   const [allDays, setAllDays] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+ // const [currentPage, setCurrentPage] = useState(1);
   // const [postsPerPage] = useState(5);
 
   useEffect(() => {

@@ -9,19 +9,20 @@ router.route('/').get((req, res) => {
 });
 
 //**Add Projects**//
-router.route('/add').post((req, res) => {
-  const projectNr = req.body.projectNr;
-  const projectTitle = req.body.projectTitle;
+router.post("/add", async (req, res) => {
+  let { projectNr, projectTitle } = req.body;
 
-  const newProject = new Project({
-        projectNr,
-        projectTitle
-    });
+  const projectNr_available = await Project.findOne({ projectNr: projectNr });
+  if (!projectNr_available) {
+    const newProject = new Project({ projectNr, projectTitle });
 
-  newProject.save()
-    .then(() => res.json('Project added!'))
-    .catch(err => res.status(400).json('Error: ' + err));
+    const savedProject = await newProject.save();
+    res.json({ msg: "Projekt erstellt!" });
+  } else {
+    res.status(200).json({ msg: "Projekt Nr. bereits vorhanden!" });
+  } 
 });
+
 
 //**Delete Projects**//
 router.route("/:id").delete((req, res) => {

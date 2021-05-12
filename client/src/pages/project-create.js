@@ -1,93 +1,111 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Container, Button } from 'react-bootstrap';
-import NavBar from "../components/NavBar";
+import React, {  useState } from "react";
+import { Button,  Form, Col, Row } from "react-bootstrap";
 import "../css/style.css";
+import NavBar from "../components/NavBar";
+import axios from "axios";
+import constants from "../constants/constants";
+import ErrorNotice from "../components/ErrorNotice";
+import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export default class ProjectCreate extends Component {
 
-    constructor(props) {
-        super(props);
-    
-        this.onChangeProjectNr = this.onChangeProjectNr.bind(this);
-        this.onChangeProjectTitle = this.onChangeProjectTitle.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-    
-        this.state = {
-            projectNr: '',
-          projectTitle: ''
+const ProjectCreate = () => {
+  const history = useHistory();
+  const [projectNR, setProjectNR] = useState("");
+  const [projectTitle, setProjectTitle] = useState("");
+  const [error, setError] = useState();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const NewProject = {
+      projectNr: projectNR,
+      projectTitle: projectTitle,
+    };
+
+    if (projectNR.trim() === "" || projectTitle.trim() === "") {
+      return setError("Bitte alle Felder ausfüllen!");
+    }
+
+    axios
+      .post(constants.backend_url + "/projects/add", NewProject)
+      .then((res) => {
+        setError(res.data.msg);
+        if (res.data.msg === "Projekt erstellt!") {
+          history.goBack();
         }
-      }
+      });
+  };
 
+  return (
+    <div>
+      <NavBar />
 
+      <div className="container" style={{ marginTop: "20px" }}>
+      </div>
 
-    onChangeProjectNr(e) {
-        this.setState({
-            projectNr: e.target.value
-        })
-      }
-    
-      onChangeProjectTitle(e) {
-        this.setState({
-            projectTitle: e.target.value
-        })
-      }
-
-      onSubmit(e) {
-        e.preventDefault();
-    
-        const project = {
-            projectNr: this.state.projectNr,
-            projectTitle: this.state.projectTitle
-        }
-    
-        console.log(project);
-    
-        axios.post('http://localhost:5001/projects/add', project)
-          .then(res => console.log(res.data));
-    
-        window.location = '/projects';
-      }
-
-  render() {
-    return (
-      
-          <Container>
-            <NavBar />
-          <br/>
-          <div>
-          <h5>Neues Projekt erfassen</h5>
-          <form onSubmit={this.onSubmit}>
-            <div className="form-group"> 
-              <label>Projektnummer: </label>
-              <input 
-                  type="text" 
-                  className="form-control"
-                  value={this.state.projectNr}
-                  onChange={this.onChangeProjectNr}
-                  />
-            <label>Projektname: </label>
-                <input 
-                  type="text" 
-                  className="form-control"
-                  value={this.state.projectTitle}
-                  onChange={this.onChangeProjectTitle}
-                />
-            </div>
-          
-            <div className="form-group">
-              <input type="submit" value="Speichern" className="btn btn-primary" />
-            </div>
-            <Button className="mb-3" href="/projects"variant="primary">Abrechen</Button>
-
-          
-
-
-          </form>
+      {/* Page Content */}
+      <div className="container content">
+        <div>
+          <h5 className="text-muted">Neues Projekt erstellen</h5>
         </div>
-        </Container>
-      
-    )
-  }
-}
 
+        <br></br>
+        {error && (
+          <ErrorNotice message={error} clearError={() => setError(undefined)} />
+        )}
+
+        <div>
+          <Form>
+            <Form.Group style={{ maxWidth: "360px" }}></Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label column sm="2">
+                Projekt Nr.:
+              </Form.Label>
+              <Col sm="10">
+                <Form.Control
+                  value={projectNR}
+                  onChange={(e) => setProjectNR(e.target.value)}
+                  type="number"
+                  placeholder="Projekt Nr..."
+                />
+              </Col>
+            </Form.Group>
+
+            <Form.Group as={Row}>
+              <Form.Label column sm="2">
+                Projekt Titel:
+              </Form.Label>
+              <Col sm="10">
+                <Form.Control
+                  value={projectTitle}
+                  onChange={(e) => setProjectTitle(e.target.value)}
+                  type="text"
+                  placeholder="Projekt Titel..."
+                />
+              </Col>
+            </Form.Group>
+
+            <Form.Group>
+              <Row>
+                <Col className="d-flex justify-content-end">
+                  <Link to={"/projects"}>
+                    <Button variant="primary">Abbrechen</Button>
+                  </Link>
+
+                  <div className="p-2"></div>
+                  <Button onClick={handleSubmit} type="submit" variant="primary">
+                    Speichern
+                  </Button>
+                </Col>
+              </Row>
+            </Form.Group>
+            
+          </Form>
+        </div>
+      </div>
+      <div></div>
+    </div>
+  );
+};
+
+export default ProjectCreate;
