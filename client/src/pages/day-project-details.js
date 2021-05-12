@@ -10,10 +10,11 @@ import "../css/style.css";
 
 
 const DayList = (props) => {
+
   let { projectNr, projectTitle } = useParams();
   const [allDays, setAllDays] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(5);
+  // const [postsPerPage] = useState(5);
 
   useEffect(() => {
     axios
@@ -33,9 +34,16 @@ const DayList = (props) => {
   };
 
   // Get current posts
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = allDays.slice(indexOfFirstPost, indexOfLastPost);
+  // const indexOfLastPost = currentPage * postsPerPage;
+  // const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  // const currentPosts = allDays.slice(indexOfFirstPost, indexOfLastPost);
+
+  const currentPosts = allDays.sort(function(a,b) {
+    return new Date(a.date) - new Date(b.date);
+  });
+  
+  // const currentPosts = allDays.sort((a, b) => b.date - a.date);
+ 
 
     return (
       <Container>
