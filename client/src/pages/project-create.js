@@ -66,6 +66,7 @@ const ProjectCreate = () => {
                   value={projectNR}
                   onChange={(e) => setProjectNR(e.target.value)}
                   type="number"
+                  
                   placeholder="Projekt Nr..."
                 />
               </Col>
