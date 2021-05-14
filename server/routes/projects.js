@@ -46,16 +46,16 @@ router.route('/:id').delete((req, res) => {
 });
 
 //**Update Project by ID**//
-router.route('/update/:id').post((req, res) => {
+router.route("/update/:id").post((req, res) => {
   Project.findById(req.params.id)
-    .then(project => {
-        project.projectNr = Number(req.body.projectNr);
-        project.projectTitle = req.body.projectTitle;
-        project.save()
-        .then(() => res.json('Project updated!'))
-        .catch(err => res.status(400).json('Error: ' + err));
+    .then((project) => {
+      project.projectNr = req.body.projectNr;
+      project.projectTitle = req.body.projectTitle;
+
+      project.save();
+      res.json({ msg: "Projekt aktualisiert!" });
     })
-    .catch(err => res.status(400).json('Error: ' + err));
+    .catch((err) => res.status(400).json("Error: " + err));
 });
 
 module.exports = router;

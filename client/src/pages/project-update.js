@@ -1,111 +1,110 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import NavBar from "../components/NavBar";
-import { Container } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, Form, Col, Row } from "react-bootstrap";
 import "../css/style.css";
+import NavBar from "../components/NavBar";
+import { Link, useParams, useHistory } from "react-router-dom";
+import axios from 'axios';
+import constants from "../constants/constants";
+import ErrorNotice from "../components/ErrorNotice";
 
-export default class ProjectUpdate extends Component {
 
-  constructor(props) {
-    super(props);
+const ProjectUpdate = (props) => {
+  const history = useHistory();
+  let { projectNr, projectTitle, projectId } = useParams();
 
-    this.onChangeProjectNr = this.onChangeProjectNr.bind(this);
-    this.onChangeProjectTitle = this.onChangeProjectTitle.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+  const [getProjectNR, setProjectNR] = useState(projectNr);
+  const [getProjectTitle, setProjectTitle] = useState(projectTitle);
+  const [error, setError] = useState();
 
-    this.state = {
-      projectNr: '',
-      projectTitle: ''
-    }
-  }
-
-  componentDidMount() {
-    axios.get('http://localhost:5001/projects/'+this.props.match.params.id)
-      .then(response => {
-        this.setState({
-          projectNr: response.data.projectNr,
-          projectTitle: response.data.projectTitle,
-        })   
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-
-    axios.get('http://localhost:5001/projects/')
-      .then(response => {
-        if (response.data.length > 0) {
-          this.setState({
-            projects: response.data.map(project => project.projects),
-          })
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-
-  }
-  
-  onChangeProjectNr(e) {
-    this.setState({
-      projectNr: e.target.value
-    })
-  }
-
-  onChangeProjectTitle(e) {
-    this.setState({
-      projectTitle: e.target.value
-    })
-  }
-
-  onSubmit(e) {
+  const handleSave = (e) => {
     e.preventDefault();
+    const NewProject = {
+      projectNr: getProjectNR,
+      projectTitle: getProjectTitle,
+    };
 
-    const project = {
-      projectNr: this.state.projectNr,
-      projectTitle: this.state.projectTitle
-    }
+    axios
+      .post(constants.backend_url + "/projects/update/" + projectId, NewProject)
+      .then((res) => {
+        setError(res.data.msg);
+        console.log(res.data.msg);
+        if (res.data.msg === "Projekt aktualisiert!") {
+          history.goBack();
+        }
+      });
 
-    console.log(project);
+  };
 
-    axios.post('http://localhost:5001/projects/update/' + this.props.match.params.id, project)
-      .then(res => console.log(res.data));
+  return (
+    <div>
+      {/* Navbar */}
+      <NavBar />
+      <div className="container" style={{ marginTop: "20px" }}></div>
 
-    window.location = '/projects';
-  }
-
-  render() {
-    return (
-        <Container>
-          <NavBar />
-        <br/>
+      {/* Page Content */}
+      <div className="container content">
         <div>
-          <h5>Projekt anpassen</h5>
-          <form onSubmit={this.onSubmit}>
-            <div className="form-group"> 
-            <label>Projektnummer: </label>
-              <input 
-                  type="text" 
-                  className="form-control mb-3"
-                  value={this.state.projectNr}
-                  onChange={this.onChangeProjectNr}
-                  />
-              <label>Projektname: </label>
-                <input 
-                  type="text" 
-                  className="form-control"
-                  value={this.state.projectTitle}
-                  onChange={this.onChangeProjectTitle}
-                />
-            </div>
-
-            <div className="form-group">
-              <input type="submit" value="Speichern" className="btn btn-primary" />
-            </div>
-          </form>
+          <h5 className="text-muted">Projekt bearbeiten</h5>
         </div>
-        </Container>
+        <br></br>
+        {error && (
+          <ErrorNotice message={error} clearError={() => setError(undefined)} />
+        )}
+        <div>
+          <Form>
+            <Form.Group style={{ maxWidth: "360px" }}></Form.Group>
+            <Form.Group as={Row} >
+              <Form.Label column sm="2">
+                Projekt Nr.:
+              </Form.Label>
+              <Col sm="10">
+              {projectNr}
+              
+              {/* <Form.Control plaintext readOnly defaultValue={projectNr}/> */}
 
-    
-    )
-  }
-}
+                {/* <Form.Control
+                  type="number"
+                  placeholder="Projekt Nr..."
+                  value={getProjectNR}
+                  onChange={(e) => setProjectNR(e.target.value)}
+                /> */}
+
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label column sm="2">
+                Projekt Titel:
+              </Form.Label>
+              <Col sm="10">
+                <Form.Control
+                  type="text"
+                  placeholder="Projekt Title..."
+                  value={getProjectTitle}
+                  onChange={(e) => setProjectTitle(e.target.value)}
+                />
+              </Col>
+            </Form.Group>
+            <Form.Group>
+              <Row>
+                <Col className="d-flex justify-content-end">
+                  <Link to={"/projects"}>
+                    <Button variant="primary">Abbrechen</Button>
+                  </Link>
+
+                  <div className="p-2"></div>
+                  <Button onClick={handleSave} variant="primary">
+                    Speichern
+                  </Button>
+                </Col>
+              </Row>
+            </Form.Group>
+          </Form>
+        </div>
+      </div>
+      {/* Footer */}
+      <div></div>
+    </div>
+  );
+};
+
+export default ProjectUpdate;

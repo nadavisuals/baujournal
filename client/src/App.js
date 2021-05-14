@@ -21,7 +21,7 @@ function App() {
         <Route path="/day-create/:projectNr/:projectTitle" exact component={DayCreate} />
         <Route path="/projects" exact component={ProjectList} />
         <Route path="/create-project" component={ProjectCreate} />
-        <Route path="/update-project/:id" component={ProjectUpdate} />
+        <Route path="/update-project/:projectNr/:projectTitle/:projectId" component={ProjectUpdate} />
         <Route path="/update-day/:projectNr/:projectTitle/:id" component={DayUpdate} />
 
       </div>
