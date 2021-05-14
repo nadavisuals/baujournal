@@ -46,7 +46,7 @@ router.post("/add", async (req, res) => {
     const savedDay = await newDate.save();
     res.json({ msg: "New Day added!" });
   } else {
-    res.status(200).json({ msg: "Date Already exists" });
+    res.status(200).json({ msg: "Dieses Datum ist bereits vorhanden!" });
   }
 });
 

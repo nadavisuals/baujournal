@@ -6,7 +6,7 @@ import axios from "axios";
 import constants from "../constants/constants";
 import { Link, useParams, useHistory } from "react-router-dom";
 import "../css/style.css";
-//import ErrorNotice from "../components/ErrorNotice";
+import ErrorNotice from "../components/ErrorNotice";
 
 const DayCreate = () => {
   const history = useHistory();
@@ -58,6 +58,15 @@ const DayCreate = () => {
       <div className="container content">
         <Form>
           <DropDown title={projectTitle} nr={projectNr} />
+
+          <div className="my-3">
+            {error && (
+              <ErrorNotice
+                message={error}
+                clearError={() => setError(undefined)}
+              />
+            )}
+          </div>
 
           <Form.Group>
             <Form.Label>Date</Form.Label>
