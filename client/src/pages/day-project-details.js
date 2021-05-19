@@ -7,16 +7,32 @@ import axios from "axios";
 import constants from "../constants/constants";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../css/style.css";
+import Pagination from "../components/Pagination";
+import Posts from "../components/Posts";
 
 
 const DayList = (props) => {
 
   let { projectNr, projectTitle } = useParams();
   const [allDays, setAllDays] = useState([]);
- // const [currentPage, setCurrentPage] = useState(1);
-  // const [postsPerPage] = useState(5);
+  const [loading, setLoading] = useState(false);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(3);
 
   useEffect(() => {
+
+//     const fetchPosts = async () => {
+//       setLoading(true);
+//       const res = await axios.get(constants.backend_url + "/days/");
+//       setAllDays(res.data);
+//       setLoading(false);
+//     }
+//     fetchPosts();  
+//   }, []);
+// console.log(allDays);
+
+
     axios
       .post(constants.backend_url + "/days/get-day/" + projectNr)
       .then((response) => {
@@ -34,14 +50,34 @@ const DayList = (props) => {
   };
 
   // Get current posts
-  // const indexOfLastPost = currentPage * postsPerPage;
-  // const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  // const currentPosts = allDays.slice(indexOfFirstPost, indexOfLastPost);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = allDays.slice(indexOfFirstPost, indexOfLastPost);
 
-  const currentPosts = allDays.sort(function(a,b) {
-    return new Date(a.date) - new Date(b.date);
-  });
+  // const currentPosts = allDays.sort(function(a,b) {
+  //   return new Date(a.date) - new Date(b.date);
+  // }).slice(indexOfFirstPost, indexOfLastPost);
+ 
+
+  // const currentPosts2 = allDays.slice(indexOfFirstPost, indexOfLastPost);
+
+  // const currentPosts = currentPosts2.sort(function(a,b) {
+  //   return new Date(a.date) - new Date(b.date);
+  // });
+
+  // const currentPosts2 = allDays.sort(function(a,b) {
+  //   return new Date(b.date) - new Date(a.date);
+  // });
+  // const currentPosts = currentPosts2.slice(indexOfFirstPost, indexOfLastPost);
+
+
+  // const currentPosts = allDays.slice(indexOfFirstPost, indexOfLastPost).sort(function(a,b) {
+  //   return new Date(a.date) - new Date(b.date);
+  // });
   
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   // const currentPosts = allDays.sort((a, b) => b.date - a.date);
  
 
@@ -170,6 +206,14 @@ const DayList = (props) => {
                   );
                 })}
             </Accordion>
+
+ {/* <Posts allDays={currentPosts} loading={loading} /> */}
+
+            <Pagination
+              postsPerPage={postsPerPage}
+              totalPosts={allDays.length} 
+              paginate={paginate}
+            />
 
           </Form.Group>
         </Form>

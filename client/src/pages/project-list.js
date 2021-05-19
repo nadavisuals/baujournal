@@ -40,6 +40,16 @@ export default class ProjectList extends Component {
       })
   }
 
+  componentDidUpdate() {
+    axios.get('http://localhost:5001/projects/')
+      .then(response => {
+        this.setState({ projects: response.data })
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+
   deleteProject(id) {
     axios.delete('http://localhost:5001/projects/'+id)
       .then(response => { console.log(response.data)});
