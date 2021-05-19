@@ -12,10 +12,10 @@ const NavBar = () => {
         bg="dark"
         variant="dark"
         className="top-nav"
-      >
+        >
         <div className="container">
           <Navbar.Brand>
-            <Link to="/">PITBAUjOURNAL</Link>
+            <Link to="/day-choose-project">PITBAUjOURNAL</Link>
           </Navbar.Brand>
   
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -23,7 +23,7 @@ const NavBar = () => {
             <Nav className="mr-auto"></Nav>
             <Nav>
               <Nav.Link>
-                <Link to="/">Baujournal</Link>
+                <Link to="/day-choose-project">Baujournal</Link>
               </Nav.Link>
   
               <Nav.Link className="active" eventKey={2}>
