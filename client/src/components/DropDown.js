@@ -21,7 +21,7 @@ const DropDown = (props) => {
         })
         .catch((error) => {
           console.log(error);
-        });
+        }, []);
     });
   
   return (
