@@ -1,5 +1,5 @@
 const constants = {
-  backend_url: "http://baujournal.herokuapp.com/",
+  backend_url: "http://baujournal.herokuapp.com",
   backend_urlLocal: "http://localhost:5001",
 };
 
