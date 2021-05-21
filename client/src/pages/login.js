@@ -1,51 +1,88 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
+import UserContext from "../../src/context/userContext";
+import Axios from "axios";
+import ErrorNotice from "../components/ErrorNotice";
 import { Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-  
-  const Login = () => {
-  
-    return (
-      <div>
-      <div className="conatiner">
+import constants from "../constants/constants"
+import "../css/style.css";
+
+
+export default function Login() {
+
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [error, setError] = useState();
+
+  const { setUserData } = useContext(UserContext);
+  const history = useHistory();
+
+
+  const submit = async (e) => {
+    e.preventDefault();
+    console.log(email + " " + password)
+    try {
+      const loginUser = { email, password };
+      const loginRes = await Axios.post(
+        constants.backend_url + "/user/login",
+        loginUser
+      );
+      setUserData({
+        token: loginRes.data.token,
+        user: loginRes.data.user,
+      });
+      localStorage.setItem("auth-token", loginRes.data.token);
+      history.push("/day-choose-project");
+    } catch (err) {
+      err.response.data.msg && setError(err.response.data.msg);
+    }
+  };
+
+  return (
+    <div>
+      <div className="container">
         <Form
           style={{
             maxWidth: "400px",
-            marginTop: "120px",
-            backgroundColor: " #737373",
+            marginTop: "60px",
+            backgroundColor: " #fff",
             padding: "50px",
           }}
           className="text-center container"
         >
           <Form.Group>
             <h1>PITBAUjOURNAL</h1>
-    
+            {error && (
+              <ErrorNotice
+                message={error}
+                clearError={() => setError(undefined)}
+              />
+            )}
+
           </Form.Group>
           <Form.Group>
-            <Form.Label>User</Form.Label>
+            <Form.Label>Benutzer</Form.Label>
             <Form.Control
+              onChange={(e) => setEmail(e.target.value)}
               type="text"
-              placeholder="Enter Email"
+              placeholder="Benutzername.."
             />
           </Form.Group>
 
           <Form.Group>
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Passwort</Form.Label>
             <Form.Control
+              onChange={(e) => setPassword(e.target.value)}
               type="password"
-              placeholder="Enter Password"
+              placeholder="Passwort.."
             />
           </Form.Group>
-          <Link
-              to={
-                "/day-choose-project"
-              }
-            >
-              <Button variant="dark">Login</Button>
-            </Link>
+
+          <Button variant="dark" type="submit">
+            <a onClick={(e) => submit(e)}>Login</a>
+          </Button>
         </Form>
       </div>
     </div>
   );
 };
-
-export default Login;

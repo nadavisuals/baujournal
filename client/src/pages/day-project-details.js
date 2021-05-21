@@ -8,30 +8,19 @@ import constants from "../constants/constants";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../css/style.css";
 import Pagination from "../components/Pagination";
-import Posts from "../components/Posts";
+
 
 
 const DayList = (props) => {
 
   let { projectNr, projectTitle } = useParams();
   const [allDays, setAllDays] = useState([]);
-  const [loading, setLoading] = useState(false);
+//  const [loading, setLoading] = useState(false);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(3);
+  const [postsPerPage] = useState(3);
 
   useEffect(() => {
-
-//     const fetchPosts = async () => {
-//       setLoading(true);
-//       const res = await axios.get(constants.backend_url + "/days/");
-//       setAllDays(res.data);
-//       setLoading(false);
-//     }
-//     fetchPosts();  
-//   }, []);
-// console.log(allDays);
-
 
     axios
       .post(constants.backend_url + "/days/get-day/" + projectNr)

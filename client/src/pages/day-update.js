@@ -170,10 +170,10 @@ class DayUpdate extends Component {
                       className="custom-select custom-select-sm mb-3"
                       value={this.state.weather}
                     >
-                      <option value={"Sonnig"}>Sunny</option>
-                      <option value={"Bewölkt"}>Cloudy</option>
-                      <option value={"Regen"}>Rain</option>
-                      <option value={"Schnee"}>Snow</option>
+                      <option value={"Sonnig"}>Sonnig</option>
+                      <option value={"Bewölkt"}>Bewölkt</option>
+                      <option value={"Regen"}>Regen</option>
+                      <option value={"Schnee"}>Schnee</option>
                     </select>
                   </Form.Group>
                   <Form.Group style={{ maxWidth: "360px" }}>
