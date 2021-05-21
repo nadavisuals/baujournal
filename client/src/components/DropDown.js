@@ -5,28 +5,26 @@ import constants from "../constants/constants";
 import { Form, Row, Col } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 const DropDown = (props) => {
-    const [allProjects, setAllProjects] = useState([]);
-    const [projectNR, setprojectNR]=useState("");
-    const [projectTitle, setProjectTitle] = useState("");
-  
-    useEffect(() => {
-      setprojectNR(props.nr);
-      setProjectTitle(props.title);
-      axios
-        .get(constants.backend_url + "/projects")
-        .then((response) => {
-          setAllProjects(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        }, []);
-    });
-  
+  const [allProjects, setAllProjects] = useState([]);
+  const [projectNR, setprojectNR] = useState("");
+  const [projectTitle, setProjectTitle] = useState("");
+
+  useEffect(() => {
+    setprojectNR(props.nr);
+    setProjectTitle(props.title);
+    axios
+      .get(constants.backend_url + "/projects")
+      .then((response) => {
+        setAllProjects(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      }, []);
+  });
+
   return (
     <div className="dropdown">
-
 
       <button
         className="btn btn-light dropdown-toggle"
