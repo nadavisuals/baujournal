@@ -14,21 +14,21 @@ const uri = process.env.DATABASE;
 
 mongoose.connect(
   uri, 
-  { useNewUrlParser: true, useCreateIndex: true },
+  { useNewUrlParser: true, useUnifiedTopology: true },
   (err) => {
     if (!err) console.log("mongo db connected successfully");
-
+    else
       console.log("Error while connecting" + JSON.stringify(err, undefined, 2));
   }
-  );
-
-
+);
 
 const projectsRouter = require('./routes/projects');
 const daysRouter = require('./routes/days');
+const userRouter = require("./routes/user");
 
 app.use('/projects', projectsRouter);
 app.use('/days', daysRouter);
+app.use("/user", userRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

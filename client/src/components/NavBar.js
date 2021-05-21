@@ -2,6 +2,7 @@ import React from "react";
 import {  Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../css/style.css";
+import "./navbar.css";
 
 const NavBar = () => {
     return (
@@ -9,7 +10,7 @@ const NavBar = () => {
         <Navbar
         collapseOnSelect
         expand="lg"
-        bg="dark"
+        bg="secondary"
         variant="dark"
         className="top-nav"
         >

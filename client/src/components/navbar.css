@@ -1,23 +1,25 @@
 
-.navbar {
-    padding: 0.0rem 0rem 0rem 0rem;
-}
+ .top-nav a {
+    padding: 0.0rem 0rem 0rem 0rem; 
+    color: white;
+  }
 
-a:link {
-    color: green;
+/*
+ a:link {
+    color: white;
   }
   
   /* visited link */
-  a:visited {
+ /* a:visited {
     color: green;
-  }
+  } */
   
   /* mouse over link */
-  a:hover {
-    color: red;
+  /*a:hover {
+    color: rgb(179, 179, 241);
   }
   
   /* selected link */
-  a:active {
-    color: yellow;
+  .top-nav a:active {
+    color: red;
   }
