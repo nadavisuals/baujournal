@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Button, Container } from 'react-bootstrap';
 import NavBar from "../components/NavBar";
+import constants from "../constants/constants";
 import "../css/style.css";
 
 
@@ -31,7 +32,7 @@ export default class ProjectList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5001/projects/')
+    axios.get(constants.backend_url + "/projects/")
       .then(response => {
         this.setState({ projects: response.data })
       })
@@ -41,7 +42,7 @@ export default class ProjectList extends Component {
   }
 
   componentDidUpdate() {
-    axios.get('http://localhost:5001/projects/')
+    axios.get(constants.backend_url + "/projects/")
       .then(response => {
         this.setState({ projects: response.data })
       })
@@ -51,7 +52,7 @@ export default class ProjectList extends Component {
   }
 
   deleteProject(id) {
-    axios.delete('http://localhost:5001/projects/'+id)
+    axios.delete(constants.backend_url + "/projects/"+id)
       .then(response => { console.log(response.data)});
 
     this.setState({
