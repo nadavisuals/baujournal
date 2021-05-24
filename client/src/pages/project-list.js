@@ -74,12 +74,8 @@ render() {
         <div className="container content">
           <h5>Projekt Manager</h5>
           <div style={{ borderTop: "1px solid lightgray ", marginBottom: 20 }}></div>
-          <Button className="mb-3" href="/create-project" variant="primary">Projekt hinzufügen</Button>
-          <Link to="/create-project">
-     <button type="button">
-     Projekt hinzufügen 2
-     </button>
- </Link>
+          {/* <Button className="mb-3" href="/create-project" variant="primary">Projekt hinzufügen</Button> */}
+          <Link to="/create-project"> <button type="button" className="mb-3" variant="primary">Projekt hinzufügen</button></Link>
           
           <table className="table">
             <thead className="thead-light">
