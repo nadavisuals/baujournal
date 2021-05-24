@@ -6,7 +6,6 @@ import NavBar from "../components/NavBar";
 import constants from "../constants/constants";
 import "../css/style.css";
 
-
 const Project = props => (
     <tr>
     <td>{props.projects.projectNr}</td>
@@ -75,7 +74,12 @@ render() {
         <div className="container content">
           <h5>Projekt Manager</h5>
           <div style={{ borderTop: "1px solid lightgray ", marginBottom: 20 }}></div>
-          <Button className="mb-3" href="/create-project"variant="primary">Projekt hinzufügen</Button>
+          <Button className="mb-3" href="/create-project" variant="primary">Projekt hinzufügen</Button>
+          <Link to="/create-project">
+     <button type="button">
+     Projekt hinzufügen 2
+     </button>
+ </Link>
           
           <table className="table">
             <thead className="thead-light">
