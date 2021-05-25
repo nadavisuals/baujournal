@@ -7,7 +7,7 @@ import "./navbar.css";
 
 const NavBar = () => {
 
-  const { setUserData } = useContext(userContext);
+  const { userData, setUserData } = useContext(userContext);
 
   const history = useHistory();
 
@@ -22,12 +22,11 @@ const NavBar = () => {
 
 
   return (
-
-     <Navbar
+    <Navbar
       collapseOnSelect
       expand="lg"
-      bg="secondary"
-      variant="secondary"
+      bg="dark"
+      variant="dark"
       className="top-nav"
     >
       <div className="container">
@@ -40,7 +39,6 @@ const NavBar = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto"></Nav>
           <Nav>
-
             <Nav.Link>
               <Link to="/day-choose-project">Baujournal</Link>
             </Nav.Link>
@@ -52,7 +50,6 @@ const NavBar = () => {
             <Nav.Link eventKey={2} onClick={() => logout()}>
               <a>Logout</a>
             </Nav.Link>
-
           </Nav>
         </Navbar.Collapse>
       </div>
