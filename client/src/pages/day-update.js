@@ -121,7 +121,7 @@ class DayUpdate extends Component {
                           makeDate: e.target.value,
                         })
                       }
-                      style={{ width: "20%" }}
+                      style={{ width: "50%" }}
                       type="date"
                       className="form-control"
                     />
@@ -137,7 +137,7 @@ class DayUpdate extends Component {
                               timeFrom: e.target.value,
                             })
                           }
-                          style={{ width: "40%" }}
+                          style={{ width: "70%" }}
                           type="time"
                           className="form-control"
                         />
@@ -151,7 +151,7 @@ class DayUpdate extends Component {
                               timeUntil: e.target.value,
                             })
                           }
-                          style={{ width: "40%" }}
+                          style={{ width: "70%" }}
                           type="time"
                           className="form-control"
                         />
@@ -254,7 +254,7 @@ class DayUpdate extends Component {
                             this.props.match.params.projectTitle
                           }
                         >
-                          <Button variant="dark">Cancel</Button>
+                          <Button variant="dark">Abbrechen</Button>
                         </Link>
                         <div className="p-2"></div>
                         <Button
@@ -279,18 +279,3 @@ class DayUpdate extends Component {
 }
 
 export default DayUpdate;
-
-
-
-
-//   render() {
-//     return (
-        
-//       <div>
-//           <NavBar />
-//         <p>You are on the Day Update component!</p>
-//       </div>
-//     )
-//   }
-// }
-
