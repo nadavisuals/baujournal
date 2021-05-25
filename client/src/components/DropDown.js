@@ -20,8 +20,8 @@ const DropDown = (props) => {
       })
       .catch((error) => {
         console.log(error);
-      }, []);
-  });
+      });
+  },[props.nr,props.title]);
 
   return (
     <div className="dropdown">
@@ -57,7 +57,6 @@ const DropDown = (props) => {
           );
         })}
       </div>
-
 
       <div className="my-4">
         <Form.Group as={Row} controlId="formPlaintextEmail">

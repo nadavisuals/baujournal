@@ -175,7 +175,7 @@ const DayList = (props) => {
                                   size="lg"
                                   variant="dark"
                                 >
-                                  Edit
+                                  Bearbeiten
                                 </Button>
                               </Link>
                               &nbsp;
@@ -185,7 +185,7 @@ const DayList = (props) => {
                                 size="lg"
                                 onClick={() => handleDelete(item._id)}
                               >
-                                Delete
+                                Löschen
                               </Button>
                             </Col>
                           </Row>

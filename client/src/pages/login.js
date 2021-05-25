@@ -7,7 +7,6 @@ import { Form, Button } from "react-bootstrap";
 import constants from "../constants/constants"
 import "../css/style.css";
 
-
 export default function Login() {
 
   const [email, setEmail] = useState();
@@ -51,7 +50,7 @@ export default function Login() {
           className="text-center container"
         >
           <Form.Group>
-            <h1>PITBAUjOURNAL</h1>
+            <h2>PITBAUjOURNAL</h2>
             {error && (
               <ErrorNotice
                 message={error}
@@ -78,7 +77,7 @@ export default function Login() {
             />
           </Form.Group>
 
-          <Button variant="dark" type="submit">
+          <Button variant="primary" type="submit">
             <a onClick={(e) => submit(e)}>Login</a>
           </Button>
         </Form>

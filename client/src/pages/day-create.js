@@ -73,7 +73,7 @@ const DayCreate = () => {
             <input
               value={makeDate}
               onChange={(e) => setMakeDate(e.target.value)}
-              style={{ width: "20%" }}
+              style={{ width: "50%" }}
               type="date"
               className="form-control"
             />
@@ -84,7 +84,7 @@ const DayCreate = () => {
                 <Form.Label>Uhrzeit von:</Form.Label>
                 <input
                   onChange={(e) => setTimeFrom(e.target.value)}
-                  style={{ width: "40%" }}
+                  style={{ width: "70%" }}
                   type="time"
                   className="form-control"
                 />
@@ -93,7 +93,7 @@ const DayCreate = () => {
                 <Form.Label>Uhrzeit bis</Form.Label>
                 <input
                   onChange={(e) => setTimeUntill(e.target.value)}
-                  style={{ width: "40%" }}
+                  style={{ width: "70%" }}
                   type="time"
                   className="form-control"
                 />
@@ -159,7 +159,7 @@ const DayCreate = () => {
             <Row>
               <Col className="d-flex justify-content-end">
                 <Link to={"/day-project-details/" + projectNr + "/" + projectTitle}>
-                  <Button variant="dark">Cancel</Button>
+                  <Button variant="dark">Abbrechen</Button>
                 </Link>
                 <div className="p-2"></div>
                 <Button onClick={handleSubmit} variant="dark">
@@ -178,20 +178,3 @@ const DayCreate = () => {
 };
 
 export default DayCreate;
-
-
-// import React, { Component } from 'react';
-// import NavBar from "../components/NavBar";
-
-// export default class DayCreate extends Component {
-//   render() {
-//     return (
-        
-//       <div>
-//           <NavBar />
-//         <p>You are on the Day Create component!</p>
-//       </div>
-//     )
-//   }
-// }
-

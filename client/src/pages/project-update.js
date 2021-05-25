@@ -12,7 +12,7 @@ const ProjectUpdate = (props) => {
   const history = useHistory();
   let { projectNr, projectTitle, projectId } = useParams();
 
-  const [getProjectNR, setProjectNR] = useState(projectNr);
+  const [getProjectNR] = useState(projectNr);
   const [getProjectTitle, setProjectTitle] = useState(projectTitle);
   const [error, setError] = useState();
 
