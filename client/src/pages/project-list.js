@@ -9,7 +9,7 @@ const Project = props => (
     <tr>
     <td>{props.projects.projectNr}</td>
     <td>{props.projects.projectTitle}</td>
-    <td class="text-end">
+    <td className="text-right">
       <Link to={"/update-project/" + props.projects.projectNr + "/" + props.projects.projectTitle + "/" + props.projects._id}>Bearbeiten</Link> | <a href="#" onClick={() => { props.deleteProject(props.projects._id) }}>Löschen</a>
     </td>
   </tr>
