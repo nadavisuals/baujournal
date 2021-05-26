@@ -21,7 +21,7 @@ const DropDown = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  },[props.nr,props.title]);
+  }, [props.nr, props.title]);
 
   return (
     <div className="dropdown">

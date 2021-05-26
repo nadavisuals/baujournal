@@ -7,7 +7,8 @@ import "./navbar.css";
 
 const NavBar = () => {
 
-  const { userData, setUserData } = useContext(userContext);
+  // const { userData, setUserData } = useContext(userContext);
+  const { setUserData } = useContext(userContext);
 
   const history = useHistory();
 
@@ -48,7 +49,7 @@ const NavBar = () => {
             </Nav.Link>
 
             <Nav.Link eventKey={2} onClick={() => logout()}>
-              <a>Logout</a>
+              <a href="/">Logout</a>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

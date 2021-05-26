@@ -9,13 +9,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../css/style.css";
 import Pagination from "../components/Pagination";
 
-
-
 const DayList = (props) => {
 
   let { projectNr, projectTitle } = useParams();
   const [allDays, setAllDays] = useState([]);
-//  const [loading, setLoading] = useState(false);
+  //  const [loading, setLoading] = useState(false);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(3);
@@ -30,7 +28,7 @@ const DayList = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  });
+  },[projectNr]);
 
   const handleDelete = (id) => {
     axios
@@ -46,7 +44,7 @@ const DayList = (props) => {
   // const currentPosts = allDays.sort(function(a,b) {
   //   return new Date(a.date) - new Date(b.date);
   // }).slice(indexOfFirstPost, indexOfLastPost);
- 
+
 
   // const currentPosts2 = allDays.slice(indexOfFirstPost, indexOfLastPost);
 
@@ -63,24 +61,24 @@ const DayList = (props) => {
   // const currentPosts = allDays.slice(indexOfFirstPost, indexOfLastPost).sort(function(a,b) {
   //   return new Date(a.date) - new Date(b.date);
   // });
-  
+
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   // const currentPosts = allDays.sort((a, b) => b.date - a.date);
- 
 
-    return (
-      <Container>
-          <NavBar />
-          <br/>
-         <div className="container content">
+
+  return (
+    <Container>
+      <NavBar />
+      <br />
+      <div className="container content">
         <Form>
-        <DropDown title={projectTitle} nr={projectNr} />
-          
+          <DropDown title={projectTitle} nr={projectNr} />
+
 
           <Form.Group>
-          <Link to={"/day-create/" + projectNr + "/" + projectTitle}>
+            <Link to={"/day-create/" + projectNr + "/" + projectTitle}>
               <Button variant="dark">Neuen Tag erstellen</Button>
             </Link>
           </Form.Group>
@@ -107,55 +105,55 @@ const DayList = (props) => {
                           <Row>
                             <Col>
                               <h5>Uhrzeit von:</h5>
-                              <br></br>
                               <p className="text-muted">{item.timeFrom}</p>
+                              <br></br>
                             </Col>
                             <Col>
                               <h5>Uhrzeit bis:</h5>
+                              <p className="text-muted">{item.timeUntil}</p>
                               <br></br>
-                              <p>{item.timeUntil}</p>
                             </Col>
                           </Row>
                           <Row>
                             <Col>
                               <h5>Wetter:</h5>
-                              <br></br>
                               <p className="text-muted">{item.weather}</p>
+                              <br></br>
                             </Col>
                           </Row>
                           <Row>
                             <Col>
                               <h5>Aussenemperatur C&#730;:</h5>
-                              <br></br>
                               <p className="text-muted">{item.temperature}</p>
+                              <br></br>
                             </Col>
                           </Row>
                           <Row>
                             <Col>
                               <h5>Anwesende Firmen:</h5>
-                              <br></br>
                               <p className="text-muted">{item.workers}</p>
+                              <br></br>
                             </Col>
                           </Row>
                           <Row>
                             <Col>
                               <h5>Stand der Arbeit:</h5>
-                              <br></br>
                               <p className="text-muted">{item.workProgress}</p>
+                              <br></br>
                             </Col>
                           </Row>
                           <Row>
                             <Col>
                               <h5>Organisatorisches</h5>
-                              <br></br>
                               <p className="text-muted">{item.workPlaning}</p>
+                              <br></br>
                             </Col>
                           </Row>
                           <Row>
                             <Col>
                               <h5>BauKG:</h5>
-                              <br></br>
                               <p className="text-muted">{item.safety}</p>
+                              <br></br>
                             </Col>
                           </Row>
                           <Row>
@@ -196,19 +194,19 @@ const DayList = (props) => {
                 })}
             </Accordion>
 
- {/* <Posts allDays={currentPosts} loading={loading} /> */}
+            {/* <Posts allDays={currentPosts} loading={loading} /> */}
 
             <Pagination
               postsPerPage={postsPerPage}
-              totalPosts={allDays.length} 
+              totalPosts={allDays.length}
               paginate={paginate}
             />
 
           </Form.Group>
         </Form>
       </div>
-        </Container>
-    )
-  };
+    </Container>
+  )
+};
 
-  export default DayList;
+export default DayList;
