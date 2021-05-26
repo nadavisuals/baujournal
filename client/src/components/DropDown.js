@@ -37,7 +37,7 @@ const DropDown = (props) => {
       </button>
 
       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        {allProjects.map((item) => {
+        {allProjects.sort((a, b) => a.projectNr - b.projectNr).map((item) => {
           return (
             <Link
               key={item._id}

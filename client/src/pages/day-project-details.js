@@ -87,7 +87,6 @@ const DayList = (props) => {
             <Accordion>
               {currentPosts
                 .slice(0)
-                .reverse()
                 .map((item) => {
                   return (
                     <Card key={item._id}>
