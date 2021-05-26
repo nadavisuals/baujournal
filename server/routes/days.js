@@ -10,7 +10,7 @@ router.route('/').get((req, res) => {
 //** Get All Day **//
    router.route("/get-day/:projectNr").post((req, res) => {
     Day.find({ projectNr: req.params.projectNr })
-    .sort({ date: -1 })
+  //  .sort({ date: -1 })
       .then((project) => res.json(project))
       .catch((err) => res.status(400).json("Error : " + err));
   });
