@@ -77,9 +77,12 @@ export default function Login() {
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" onClick={(e) => submit(e)}>Login</Button>
+
+          {/* <Button variant="primary" type="submit">
             <a onClick={(e) => submit(e)}>Login</a>
-          </Button>
+          </Button> */}
+
         </Form>
       </div>
     </div>

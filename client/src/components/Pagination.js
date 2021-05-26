@@ -1,9 +1,8 @@
 import React from "react";
-
+import { Button } from "react-bootstrap";
 
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [];
-
 
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
@@ -13,11 +12,15 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
     <nav>
       <ul className="pagination mt-5">
         {pageNumbers.map((number) => (
-          <li key={number} className="page-item">
-            <a  onClick={() => paginate(number)}  className="page-link">
-              {number}
-            </a>
-          </li>
+
+<Button variant="primary" type="submit" onClick={() => paginate(number)}>{number}</Button>
+
+          // <li key={number} className="page-item">
+          //   <a onClick={() => paginate(number)}  className="page-link">
+          //     {number}
+          //   </a>
+          // </li>
+
         ))}
       </ul>
     </nav>

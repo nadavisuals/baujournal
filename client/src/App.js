@@ -63,9 +63,9 @@ function App() {
         <Route path="/day-project-details/:projectNr/:projectTitle" exact component={DayProjectDetails} />
         <Route path="/day-create/:projectNr/:projectTitle" exact component={DayCreate} />
         <Route path="/projects" exact component={ProjectList} />
-        <Route path="/create-project" component={ProjectCreate} />
-        <Route path="/update-project/:projectNr/:projectTitle/:projectId" component={ProjectUpdate} />
-        <Route path="/update-day/:projectNr/:projectTitle/:id" component={DayUpdate} />
+        <Route path="/create-project" exact component={ProjectCreate} />
+        <Route path="/update-project/:projectNr/:projectTitle/:projectId" exact component={ProjectUpdate} />
+        <Route path="/update-day/:projectNr/:projectTitle/:id" exact component={DayUpdate} />
 
       </div>
       </UserContext.Provider>
