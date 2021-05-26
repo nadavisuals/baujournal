@@ -12,6 +12,7 @@ app.use(express.json());
 
 const uri = process.env.DATABASE;
 
+mongoose.set('useCreateIndex', true)
 mongoose.connect(
   uri, 
   { useNewUrlParser: true, useUnifiedTopology: true },

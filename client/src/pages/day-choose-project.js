@@ -8,15 +8,15 @@ const DayChooseProject = () => {
 
   return (
     <Container>
-    
+
       <NavBar />
-      <br/>
+        <br />
       <div className="container content">
-        <DropDown/>
+        <DropDown />
       </div>
 
       <div></div>
-    
+
     </Container>
   );
 };
