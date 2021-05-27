@@ -61,7 +61,7 @@ const DropDown = (props) => {
       <div className="my-4">
         <Form.Group as={Row} controlId="formPlaintextEmail">
           <Form.Label column sm="2">
-            Projekt Nr.:
+            <b>Projekt Nr.:</b>
           </Form.Label>
           <Col sm="10">
             <Form.Control plaintext readOnly defaultValue={projectNR}
@@ -70,7 +70,7 @@ const DropDown = (props) => {
         </Form.Group>
         <Form.Group as={Row} controlId="formPlaintextEmail">
           <Form.Label column sm="2">
-            Projekt Titel:
+          <b>Projekt Titel:</b>
           </Form.Label>
           <Col sm="10">
             <Form.Control plaintext readOnly defaultValue={projectTitle} />

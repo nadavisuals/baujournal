@@ -41,8 +41,6 @@ const DayCreate = () => {
       safety: safety,
     };
 
-    console.log("date: ");
-
     axios.post(constants.backend_url + "/days/add", NewDay).then((res) => {
       setError(res.data.msg);
       if (res.data.msg === "New Day added!") {

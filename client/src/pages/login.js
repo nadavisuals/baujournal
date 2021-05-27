@@ -1,13 +1,11 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import UserContext from "../../src/context/userContext";
+import UserContext from "../context/userContext";
 import Axios from "axios";
 import ErrorNotice from "../components/ErrorNotice";
 import { Form, Button } from "react-bootstrap";
 import constants from "../constants/constants"
 import "../css/style.css";
-
-
 
 export default function Login() {
 
@@ -17,7 +15,6 @@ export default function Login() {
 
   const { setUserData } = useContext(UserContext);
   const history = useHistory();
-
 
   const submit = async (e) => {
     e.preventDefault();
