@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import DayChooseProject from "./pages/day-choose-project";
-import DayProjectDetails from "./pages/day-project-details";
-import DayCreate from "./pages/day-create";
-import DayUpdate from "./pages/day-update";
-import ProjectList from "./pages/project-list";
-import ProjectCreate from "./pages/project-create";
-import ProjectUpdate from "./pages/project-update";
-import Login from "./pages/login";
 import UserContext from "./context/userContext";
 import constants from "./constants/constants";
 import Axios from "axios";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import DayChooseProject from "./pages/Day-choose-project";
+import DayProjectDetails from "./pages/Day-project-details";
+import DayCreate from "./pages/Day-create";
+import DayUpdate from "./pages/Day-update";
+import ProjectList from "./pages/Project-list";
+import ProjectCreate from "./pages/Project-create";
+import ProjectUpdate from "./pages/Project-update";
+import Login from "./pages/Login";
 
 function App() {
 
@@ -49,9 +48,6 @@ function App() {
 
     checkLoggedIn();
   }, []);
-
-
-
 
   return (
     <Router>

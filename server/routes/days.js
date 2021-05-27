@@ -15,18 +15,8 @@ router.route('/').get((req, res) => {
       .catch((err) => res.status(400).json("Error : " + err));
   });
 
-
-// router.route("/get-day/:projectNr").post((req, res) => {
-//   Day.find({ projectNr: req.params.projectNr })
-//     .then((project) => res.json(project))
-//     .catch((err) => res.status(400).json("Error : " + err));
-// });
-
-
-
 //** Add Day Details **//
 router.post("/add", async (req, res) => {
-  console.log("day added");
   let {
     projectNr,
     date,
@@ -80,7 +70,6 @@ router.route("/get-day-detail/:id").get((req, res) => {
     .catch((err) => res.status(400).json("Error : " + err));
 });
 
-
 //** Update Day **//
 router.route("/update/:id").post((req, res) => {
   Day.findById(req.params.id)
@@ -103,8 +92,6 @@ router.route("/update/:id").post((req, res) => {
     })
     .catch((err) => res.status(400).json("Error: " + err));
 });
-
-
 
 module.exports = router;
 

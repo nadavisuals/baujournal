@@ -43,7 +43,7 @@ const DayList = (props) => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  console.log(currentPosts);
+  // console.log(currentPosts);
 
   return (
     <Container>
@@ -168,8 +168,6 @@ const DayList = (props) => {
                   );
                 })}
             </Accordion>
-
-            {/* <Posts allDays={currentPosts} loading={loading} /> */}
 
             <Pagination
               postsPerPage={postsPerPage}

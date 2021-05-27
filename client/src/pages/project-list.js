@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Button, Container } from 'react-bootstrap';
 import NavBar from "../components/NavBar";
 import constants from "../constants/constants";
+import "../css/style.css";
 
 const Project = props => (
     <tr>
