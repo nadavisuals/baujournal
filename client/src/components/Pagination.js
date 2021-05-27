@@ -13,18 +13,9 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
       <ul className="pagination mt-5">
         {pageNumbers.map((number) => (
 
-          // <Button key={number} className="page-item" variant="primary" type="submit" onClick={() => paginate(number)}>{number}</Button>
-          //<Button variant="primary" onClick={() => { paginate(number)}  className="page-link">{number}</Button>
-
           <li key={number} className="page-item">
             <Button variant="outline-primary" onClick={() => paginate(number)}> {number} </Button> &nbsp;
           </li>
-
-          // <li key={number} className="page-item">
-          //   <a onClick={() => paginate(number)}  className="page-link">
-          //     {number}
-          //   </a>
-          // </li>
 
         ))}
       </ul>
