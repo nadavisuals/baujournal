@@ -66,7 +66,7 @@ const DayList = (props) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   // const currentPosts = allDays.sort((a, b) => b.date - a.date);
-
+  console.log(currentPosts);
 
   return (
     <Container>
