@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Form, Row, Col, Button, Container } from "react-bootstrap";
 import DropDown from "../components/DropDown";
@@ -33,7 +32,6 @@ class DayUpdate extends Component {
       allData: [],
       goBack: false,
     };
-
     this.getDayData = this.getDayData.bind(this);
   }
 
@@ -84,7 +82,6 @@ class DayUpdate extends Component {
       safety: this.state.safety,
     };
 
-
     axios
       .post(constants.backend_url + "/days/update/" + this.state.dayId, NewDay)
       .then((res) => console.log(res.data));
@@ -107,7 +104,6 @@ class DayUpdate extends Component {
               title={this.props.match.params.projectTitle}
               nr={this.props.match.params.projectNr}
             />
-
 
             {this.state.allData.map((item) => {
               return (
@@ -170,6 +166,7 @@ class DayUpdate extends Component {
                       className="custom-select custom-select-sm mb-3"
                       value={this.state.weather}
                     >
+                      <option value={""}></option>
                       <option value={"Sonnig"}>Sonnig</option>
                       <option value={"Bewölkt"}>Bewölkt</option>
                       <option value={"Regen"}>Regen</option>
@@ -257,12 +254,7 @@ class DayUpdate extends Component {
                           <Button variant="dark">Abbrechen</Button>
                         </Link>
                         <div className="p-2"></div>
-                        <Button
-                          onClick={(e) => this.handleSubmit(e)}
-                          variant="dark"
-                        >
-                          Update
-                        </Button>
+                        <Button onClick={(e) => this.handleSubmit(e)} variant="primary">Update</Button>
                       </Col>
                     </Row>
                   </Form.Group>
@@ -271,8 +263,7 @@ class DayUpdate extends Component {
             })}
           </Form>
         </div>
-        {/* Footer */}
-        <div></div>
+
       </Container>
     );
   }

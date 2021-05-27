@@ -107,10 +107,11 @@ const DayCreate = () => {
               onChange={(e) => setWeather(e.target.value)}
               className="custom-select custom-select-sm mb-3"
             >
-              <option value={"Sunny"}>Sonnig</option>
-              <option value={"Cloudy"}>Bewölkt</option>
-              <option value={"Rain"}>Regen</option>
-              <option value={"Snow"}>Schnee</option>
+              <option value={""}></option>
+              <option value={"Sonnig"}>Sonnig</option>
+              <option value={"Bewölkt"}>Bewölkt</option>
+              <option value={"Regen"}>Regen</option>
+              <option value={"Schnee"}>Schnee</option>
             </select>
           </Form.Group>
           <Form.Group style={{ maxWidth: "360px" }}>
