@@ -10,7 +10,10 @@ const Project = props => (
     <td>{props.projects.projectNr}</td>
     <td>{props.projects.projectTitle}</td>
     <td className="text-right">
-      <Link to={"/update-project/" + props.projects.projectNr + "/" + props.projects.projectTitle + "/" + props.projects._id}>Bearbeiten</Link> | <a href="/projects" onClick={() => { props.deleteProject(props.projects._id) }}>Löschen</a>
+      {/* <Link to={"/update-project/" + props.projects.projectNr + "/" + props.projects.projectTitle + "/" + props.projects._id}>Bearbeiten</Link> | <a href="#" onClick={() => { props.deleteProject(props.projects._id) }}>Löschen</a> */}
+      {/* <Button ><Link className="text-white" to={"/update-project/" + props.projects.projectNr + "/" + props.projects.projectTitle + "/" + props.projects._id}>Bearbeiten</Link></Button>  <Button onClick={() => { props.deleteProject(props.projects._id) }}>Löschen</Button> */}
+      <Link to={"/update-project/" + props.projects.projectNr + "/" + props.projects.projectTitle + "/" + props.projects._id}><Button variant="link">Bearbeiten</Button></Link> | <Button variant="link" onClick={() => { props.deleteProject(props.projects._id) }}>Löschen</Button>
+
     </td>
   </tr>
 )
@@ -34,17 +37,6 @@ export default class ProjectList extends Component {
       })
   }
 
-  // componentDidUpdate() {
-  //   axios.get(constants.backend_url + "/projects/")
-  //     .then(response => {
-  //       this.setState({ projects: response.data })
-  //       console.log("Update");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     })
-  // }
-
   deleteProject(id) {
     axios.delete(constants.backend_url + "/projects/"+id)
       .then(response => { console.log(response.data)});
@@ -63,19 +55,18 @@ projectList() {
 render() {
     return (
         <Container>
-        
         <NavBar />
         <br/>
         <div className="container content">
           <h5>Projekt Manager</h5>
           <div style={{ borderTop: "1px solid lightgray ", marginBottom: 20 }}></div>
           {/* <Button className="mb-3" href="/create-project" variant="primary">Projekt hinzufügen</Button> */}
-          <Link to="/create-project"> <Button className="mb-3" variant="primary" type="button"  >Projekt hinzufügen</Button></Link>
+          <Link to="/create-project"> <Button className="mb-3" variant="primary" type="button" >Projekt hinzufügen</Button></Link>
           
           <table className="table">
             <thead className="thead-light">
               <tr>
-                <th>Projektnummer</th>
+                <th>Projekt Nr.</th>
                 <th>Projektname</th>
                 <th></th>
               </tr>

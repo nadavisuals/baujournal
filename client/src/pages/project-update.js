@@ -88,7 +88,7 @@ const ProjectUpdate = (props) => {
               <Row>
                 <Col className="d-flex justify-content-end">
                   <Link to={"/projects"}>
-                    <Button variant="primary">Abbrechen</Button>
+                    <Button variant="dark">Abbrechen</Button>
                   </Link>
 
                   <div className="p-2"></div>

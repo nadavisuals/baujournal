@@ -26,8 +26,8 @@ const DropDown = (props) => {
   return (
     <div className="dropdown">
 
-      <button
-        className="btn btn-light dropdown-toggle"
+      <button 
+        className="btn btn-dark dropdown-toggle"
         type="button"
         id="dropdownMenuButton"
         data-toggle="dropdown"

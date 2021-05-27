@@ -49,7 +49,8 @@ const NavBar = () => {
             </Nav.Link>
 
             <Nav.Link eventKey={2} onClick={() => logout()}>
-              <a href="/">Logout</a>
+            <Link to="#" >Logout</Link>
+              
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

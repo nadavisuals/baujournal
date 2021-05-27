@@ -41,31 +41,8 @@ const DayList = (props) => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = allDays.slice(indexOfFirstPost, indexOfLastPost);
 
-  // const currentPosts = allDays.sort(function(a,b) {
-  //   return new Date(a.date) - new Date(b.date);
-  // }).slice(indexOfFirstPost, indexOfLastPost);
-
-
-  // const currentPosts2 = allDays.slice(indexOfFirstPost, indexOfLastPost);
-
-  // const currentPosts = currentPosts2.sort(function(a,b) {
-  //   return new Date(a.date) - new Date(b.date);
-  // });
-
-  // const currentPosts2 = allDays.sort(function(a,b) {
-  //   return new Date(b.date) - new Date(a.date);
-  // });
-  // const currentPosts = currentPosts2.slice(indexOfFirstPost, indexOfLastPost);
-
-
-  // const currentPosts = allDays.slice(indexOfFirstPost, indexOfLastPost).sort(function(a,b) {
-  //   return new Date(a.date) - new Date(b.date);
-  // });
-
-
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  // const currentPosts = allDays.sort((a, b) => b.date - a.date);
   console.log(currentPosts);
 
   return (
@@ -76,10 +53,9 @@ const DayList = (props) => {
         <Form>
           <DropDown title={projectTitle} nr={projectNr} />
 
-
           <Form.Group>
             <Link to={"/day-create/" + projectNr + "/" + projectTitle}>
-              <Button variant="dark">Neuen Tag erstellen</Button>
+              <Button variant="primary">Neuen Tag erstellen</Button>
             </Link>
           </Form.Group>
 
@@ -170,7 +146,7 @@ const DayList = (props) => {
                                 <Button
                                   className="p-1"
                                   size="lg"
-                                  variant="dark"
+                                  variant="primary"
                                 >
                                   Bearbeiten
                                 </Button>
@@ -178,7 +154,7 @@ const DayList = (props) => {
                               &nbsp;
                               <Button
                                 className="p-1"
-                                variant="dark"
+                                variant="primary"
                                 size="lg"
                                 onClick={() => handleDelete(item._id)}
                               >
