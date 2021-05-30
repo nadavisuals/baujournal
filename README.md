@@ -9,11 +9,11 @@
 
 Post: http://localhost:5001/user/register <br />
 `
-{
-    "email": "example@test.com",
-    "password": "example@test",
-    "passwordCheck": "example@test"
-}
+{<br />
+    "email": "example@test.com",<br />
+    "password": "example@test",<br />
+    "passwordCheck": "example@test"<br />
+}<br />
 `
 ## App starten
 - Via terminal im Ordner 'server' `$ npm start` ausführen
