@@ -7,7 +7,7 @@ import DropDown from "../components/DropDown";
 import NavBar from "../components/NavBar";
 import ErrorNotice from "../components/ErrorNotice";
 import constants from "../constants/constants";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/style.css";
 
 class DayUpdate extends Component {

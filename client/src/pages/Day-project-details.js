@@ -6,11 +6,10 @@ import constants from "../constants/constants";
 import Pagination from "../components/Pagination";
 import NavBar from "../components/NavBar";
 import DropDown from "../components/DropDown";
-import "bootstrap/dist/css/bootstrap.min.css";
 // import "../css/style.css";
 
 function DayList () {
-  // const history = useHistory();
+
   let { projectNr, projectTitle } = useParams();
   const [allDays, setAllDays] = useState([]);
   //  const [loading, setLoading] = useState(false);
@@ -33,7 +32,7 @@ function DayList () {
     axios
       .delete(constants.backend_url + "/days/" + id)
       .then((res) => console.log(res.data));
-   //   history.push("/day-project-details/" + projectNr + "/" + projectTitle);
+      window.location.reload(false);
   };
 
   const indexOfLastPost = currentPage * postsPerPage;
@@ -154,6 +153,7 @@ function DayList () {
                                 variant="primary"
                                 size="lg"
                                 onClick={() => handleDelete(item._id)}
+                                Rou
                               >
                                 Löschen
                               </Button>
