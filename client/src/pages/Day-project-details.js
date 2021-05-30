@@ -153,7 +153,6 @@ function DayList () {
                                 variant="primary"
                                 size="lg"
                                 onClick={() => handleDelete(item._id)}
-                                Rou
                               >
                                 Löschen
                               </Button>

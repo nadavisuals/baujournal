@@ -33,10 +33,10 @@ const DropDown = ({ nr, title }) => {
         aria-haspopup="true"
         aria-expanded="false"
       >
-        Choose Project
+        Projekt auswählen
       </button>
       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        {allProjects.map((item) => {
+      {allProjects.sort((a, b) => a.projectNr - b.projectNr).map((item) => {
           return (
             <Link
               key={item._id}
@@ -59,7 +59,7 @@ const DropDown = ({ nr, title }) => {
       <div className="my-4">
         <Form.Group as={Row} controlId="formPlaintextEmail">
           <Form.Label column sm="2">
-            Project Nr.:
+            Projekt Nr.:
           </Form.Label>
           <Col sm="10">
             <Form.Control plaintext readOnly defaultValue={projectNR} />
@@ -67,7 +67,7 @@ const DropDown = ({ nr, title }) => {
         </Form.Group>
         <Form.Group as={Row} controlId="formPlaintextEmail">
           <Form.Label column sm="2">
-            Project Title:
+            Projekt Titel:
           </Form.Label>
           <Col sm="10">
             <Form.Control plaintext readOnly defaultValue={projectTitle} />
