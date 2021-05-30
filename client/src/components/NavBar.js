@@ -1,13 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import userContext from "../context/userContext"
-import "../css/style.css";
-import "./navbar.css";
+import "../css/navbar.css";
 
 const NavBar = () => {
 
-  // const { userData, setUserData } = useContext(userContext);
   const { setUserData } = useContext(userContext);
 
   const history = useHistory();
@@ -20,7 +18,6 @@ const NavBar = () => {
     localStorage.setItem("auth-token", "");
     history.push("/");
   };
-
 
   return (
     <Navbar
@@ -41,11 +38,11 @@ const NavBar = () => {
           <Nav className="mr-auto"></Nav>
           <Nav>
             <Nav.Link>
-              <Link to="/day-choose-project">Baujournal</Link>
+              <Link ClassName="active" to="/day-choose-project">Baujournal</Link>
             </Nav.Link>
 
-            <Nav.Link className="active" eventKey={2}>
-              <Link to="/projects">Projekte</Link>
+            <Nav.Link>
+              <Link className="active" to="/projects">Projekte</Link>
             </Nav.Link>
 
             <Nav.Link eventKey={2} onClick={() => logout()}>

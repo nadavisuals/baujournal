@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Form, Row, Col, Button, Container } from "react-bootstrap";
+import { Link, useParams, useHistory } from "react-router-dom";
+import axios from "axios";
 import NavBar from "../components/NavBar";
 import DropDown from "../components/DropDown";
-import axios from "axios";
 import constants from "../constants/constants";
-import { Link, useParams, useHistory } from "react-router-dom";
-import "../css/style.css";
 import ErrorNotice from "../components/ErrorNotice";
+import "../css/style.css";
 
 const DayCreate = () => {
   const history = useHistory();
@@ -52,7 +52,6 @@ const DayCreate = () => {
   return (
     <Container>
       <NavBar />
-      {/* Page Content */}
       <div className="container content">
         <Form>
           <DropDown title={projectTitle} nr={projectNr} />
@@ -67,7 +66,7 @@ const DayCreate = () => {
           </div>
 
           <Form.Group>
-            <Form.Label>Date</Form.Label>
+            <Form.Label>Datum</Form.Label>
             <input
               value={makeDate}
               onChange={(e) => setMakeDate(e.target.value)}

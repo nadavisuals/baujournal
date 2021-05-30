@@ -1,10 +1,21 @@
-# Diplomarbeit
+## Project Setup
+- In terminal go to folder 'server': npm install
+- In terminal go to folder 'client': npm install
 
-## Projekt starten
-jaslkfdjsaldkf
+- In the folder 'server' go to the .env file and add your MongoDB database path at 'DATABASE' (Local MongoDB or MongoDB Atlas)
 
-## Demo
-asdfasfasf
+- Create User and PW for Login
+with Postman add a new user
+--> Collection with name 'users'
+
+Post: http://localhost:5001/user/register
+{
+    "email": "user@test.com",
+    "password": "user@test",
+    "passwordCheck": "user@test"
+}
 
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/6148a39c-fc5d-45d8-baa4-b77a6396a173/deploy-status)](https://app.netlify.com/sites/baujournal/deploys)
+## Start App 
+Go to folder 'server': nodemon server
+Go to folder 'client': npm start

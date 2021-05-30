@@ -1,13 +1,11 @@
-import React, {  useState } from "react";
-import { Button,  Form, Col, Row } from "react-bootstrap";
-import "../css/style.css";
-import NavBar from "../components/NavBar";
+import React, { useState } from "react";
+import { Button, Form, Col, Row } from "react-bootstrap";
+import { useHistory, Link } from "react-router-dom";
 import axios from "axios";
+import NavBar from "../components/NavBar";
 import constants from "../constants/constants";
 import ErrorNotice from "../components/ErrorNotice";
-import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
-
+//import "../css/style.css";
 
 const ProjectCreate = () => {
   const history = useHistory();
@@ -40,16 +38,13 @@ const ProjectCreate = () => {
     <div>
       <NavBar />
 
-      <div className="container" style={{ marginTop: "20px" }}>
-      </div>
+      <div className="container" style={{ marginTop: "20px" }}></div>
 
-      {/* Page Content */}
       <div className="container content">
         <div>
           <h5 className="text-muted">Neues Projekt erstellen</h5>
         </div>
 
-        <br></br>
         {error && (
           <ErrorNotice message={error} clearError={() => setError(undefined)} />
         )}
@@ -66,7 +61,6 @@ const ProjectCreate = () => {
                   value={projectNR}
                   onChange={(e) => setProjectNR(e.target.value)}
                   type="number"
-                  
                   placeholder="Projekt Nr..."
                 />
               </Col>
@@ -100,11 +94,10 @@ const ProjectCreate = () => {
                 </Col>
               </Row>
             </Form.Group>
-            
+
           </Form>
         </div>
       </div>
-      <div></div>
     </div>
   );
 };

@@ -1,22 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { Container } from "react-bootstrap";
 import NavBar from "../components/NavBar";
 import DropDown from "../components/DropDown";
 import "../css/style.css";
-import { Container } from "react-bootstrap";
+
 
 const DayChooseProject = () => {
 
+  const history = useHistory();
+  useEffect(() => {
+    if (localStorage.getItem("auth-token") === "") {
+      history.push("/");
+    }
+  }, [history]);
+
   return (
     <Container>
-
       <NavBar />
         <br />
       <div className="container content">
         <DropDown />
       </div>
-
-      <div></div>
-
     </Container>
   );
 };

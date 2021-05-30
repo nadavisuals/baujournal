@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { Form, Row, Col, Button, Accordion, Card, Container } from "react-bootstrap";
-import NavBar from "../components/NavBar";
 import { Link, useParams } from "react-router-dom";
-import DropDown from "../components/DropDown";
 import axios from "axios";
 import constants from "../constants/constants";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "../css/style.css";
 import Pagination from "../components/Pagination";
+import NavBar from "../components/NavBar";
+import DropDown from "../components/DropDown";
+import "bootstrap/dist/css/bootstrap.min.css";
+// import "../css/style.css";
 
-const DayList = (props) => {
-
+function DayList () {
+  // const history = useHistory();
   let { projectNr, projectTitle } = useParams();
   const [allDays, setAllDays] = useState([]);
   //  const [loading, setLoading] = useState(false);
@@ -18,10 +18,9 @@ const DayList = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(3);
 
-  useEffect(() => {
-
+  useEffect( () => {
     axios
-      .post(constants.backend_url + "/days/get-day/" + projectNr)
+      .post(constants.backend_url + "/days/get-days/" + projectNr)
       .then((response) => {
         setAllDays(response.data);
       })
@@ -34,16 +33,14 @@ const DayList = (props) => {
     axios
       .delete(constants.backend_url + "/days/" + id)
       .then((res) => console.log(res.data));
+   //   history.push("/day-project-details/" + projectNr + "/" + projectTitle);
   };
 
-  // Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = allDays.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  // console.log(currentPosts);
 
   return (
     <Container>

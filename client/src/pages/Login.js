@@ -18,7 +18,6 @@ export default function Login() {
 
   const submit = async (e) => {
     e.preventDefault();
-    console.log(email + " " + password)
     try {
       const loginUser = { email, password };
       const loginRes = await Axios.post(
@@ -56,8 +55,8 @@ export default function Login() {
                 clearError={() => setError(undefined)}
               />
             )}
-
           </Form.Group>
+          
           <Form.Group>
             <Form.Label>Benutzer</Form.Label>
             <Form.Control
@@ -77,10 +76,6 @@ export default function Login() {
           </Form.Group>
 
           <Button variant="primary" type="submit" onClick={(e) => submit(e)}>Login</Button>
-
-          {/* <Button variant="primary" type="submit">
-            <a onClick={(e) => submit(e)}>Login</a>
-          </Button> */}
 
         </Form>
       </div>

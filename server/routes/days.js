@@ -1,14 +1,15 @@
 const router = require("express").Router();
 let Day = require("../models/days.model");
 
+//** Get All Day **//
 router.route('/').get((req, res) => {
   Day.find()
     .then(project => res.json(project))
-    .catch(err => res.status(400).json('Error: ' + err));
+    .catch(err => res.status(400).json("Error: " + err));
 });
 
-//** Get All Day **//
-   router.route("/get-day/:projectNr").post((req, res) => {
+//** Get All Days from ProjectNr **//
+   router.route("/get-days/:projectNr").post((req, res) => {
     Day.find({ projectNr: req.params.projectNr })
       .sort({ date: -1 })
       .then((project) => res.json(project))
@@ -94,7 +95,3 @@ router.route("/update/:id").post((req, res) => {
 });
 
 module.exports = router;
-
-
-
-
