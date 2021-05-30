@@ -3,16 +3,15 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import constants from "../constants/constants";
 import { Form, Row, Col } from "react-bootstrap";
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-const DropDown = (props) => {
+//
+const DropDown = ({ nr, title }) => {
   const [allProjects, setAllProjects] = useState([]);
   const [projectNR, setprojectNR] = useState("");
   const [projectTitle, setProjectTitle] = useState("");
 
   useEffect(() => {
-    setprojectNR(props.nr);
-    setProjectTitle(props.title);
+    setprojectNR(nr);
+    setProjectTitle(title);
     axios
       .get(constants.backend_url + "/projects")
       .then((response) => {
@@ -21,23 +20,23 @@ const DropDown = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  }, [props.nr, props.title]);
+  },[nr, title]);
 
+ 
   return (
     <div className="dropdown">
-
-      <button 
-        className="btn btn-dark dropdown-toggle"
+      <button
+        className="btn btn-light dropdown-toggle"
         type="button"
         id="dropdownMenuButton"
         data-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
-      >Projekt wählen
+      >
+        Choose Project
       </button>
-
       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        {allProjects.sort((a, b) => a.projectNr - b.projectNr).map((item) => {
+        {allProjects.map((item) => {
           return (
             <Link
               key={item._id}
@@ -57,20 +56,18 @@ const DropDown = (props) => {
           );
         })}
       </div>
-
       <div className="my-4">
         <Form.Group as={Row} controlId="formPlaintextEmail">
           <Form.Label column sm="2">
-            <b>Projekt Nr.:</b>
+            Project Nr.:
           </Form.Label>
           <Col sm="10">
-            <Form.Control plaintext readOnly defaultValue={projectNR}
-            />
+            <Form.Control plaintext readOnly defaultValue={projectNR} />
           </Col>
         </Form.Group>
         <Form.Group as={Row} controlId="formPlaintextEmail">
           <Form.Label column sm="2">
-          <b>Projekt Titel:</b>
+            Project Title:
           </Form.Label>
           <Col sm="10">
             <Form.Control plaintext readOnly defaultValue={projectTitle} />

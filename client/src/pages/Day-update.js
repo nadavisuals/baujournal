@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Form, Row, Col, Button, Container } from "react-bootstrap";
-import DropDown from "../components/DropDown";
-import axios from "axios";
-import constants from "../constants/constants";
-import NavBar from "../components/NavBar";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from "axios";
+import DropDown from "../components/DropDown";
+import NavBar from "../components/NavBar";
+import ErrorNotice from "../components/ErrorNotice";
+import constants from "../constants/constants";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/style.css";
 
 class DayUpdate extends Component {
@@ -24,7 +25,7 @@ class DayUpdate extends Component {
       timeUntil: "",
       weather: "",
       workers: "",
-      temperature: 0,
+      temperature: "",
       workProgress: "",
       workPlaning: "",
       safety: "",
@@ -95,9 +96,8 @@ class DayUpdate extends Component {
   render() {
     return (
       <Container>
-        {/* Navbar */}
         <NavBar />
-        {/* Page Content */}
+        <br />
         <div className="container content">
           <Form>
             <DropDown
@@ -105,11 +105,22 @@ class DayUpdate extends Component {
               nr={this.props.match.params.projectNr}
             />
 
+          {this.state.error && (
+              <ErrorNotice
+                message={this.state.error}
+                clearError={() =>
+                  this.setState({
+                    error: undefined,
+                  })
+                }
+              />
+            )}
+
             {this.state.allData.map((item) => {
               return (
                 <div>
                   <Form.Group>
-                    <Form.Label>Date</Form.Label>
+                    <Form.Label>Datum</Form.Label>
                     <input
                       value={this.state.makeDate}
                       onChange={(e) =>

@@ -1,11 +1,11 @@
-const router = require('express').Router();
-let Project = require('../models/projects.model');
+const router = require("express").Router();
+let Project = require("../models/projects.model");
 
 //**Show all Projects**//
-router.route('/').get((req, res) => {
+router.route("/").get((req, res) => {
   Project.find()
     .then(projects => res.json(projects))
-    .catch(err => res.status(400).json('Error: ' + err));
+    .catch(err => res.status(400).json("Error: " + err));
 });
 
 //**Add Projects**//
@@ -23,28 +23,6 @@ router.post("/add", async (req, res) => {
   } 
 });
 
-
-//**Delete Projects**//
-router.route("/:id").delete((req, res) => {
-  Project.findByIdAndDelete(req.params.id)
-    .then(() => res.json("Project deleted."))
-    .catch((err) => res.status(400).json("Error: " + err));
-});
-
-//**Get Project by ID**//
-router.route('/:id').get((req, res) => {
-  Project.findById(req.params.id)
-    .then(project => res.json(project))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
-
-//**Delete Project by ID**//
-router.route('/:id').delete((req, res) => {
-  Project.findByIdAndDelete(req.params.id)
-    .then(() => res.json('Project deleted.'))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
-
 //**Update Project by ID**//
 router.route("/update/:id").post((req, res) => {
   Project.findById(req.params.id)
@@ -57,5 +35,26 @@ router.route("/update/:id").post((req, res) => {
     })
     .catch((err) => res.status(400).json("Error: " + err));
 });
+
+//**Get Project by ID**//
+router.route("/:id").get((req, res) => {
+  Project.findById(req.params.id)
+    .then(project => res.json(project))
+    .catch(err => res.status(400).json("Error: " + err));
+});
+
+//**Delete Project by ID**//
+router.route("/:id").delete((req, res) => {
+  Project.findByIdAndDelete(req.params.id)
+    .then(() => res.json("Project deleted."))
+    .catch(err => res.status(400).json("Error: " + err));
+});
+
+// //**Delete Projects**//
+// router.route("/:id").delete((req, res) => {
+//   Project.findByIdAndDelete(req.params.id)
+//     .then(() => res.json("Project deleted."))
+//     .catch((err) => res.status(400).json("Error: " + err));
+// });
 
 module.exports = router;

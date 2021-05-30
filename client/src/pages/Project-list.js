@@ -38,8 +38,18 @@ export default class ProjectList extends Component {
       })
   }
 
+  // componentDidUpdate() {
+  //   axios.get(constants.backend_url + "/projects/")
+  //     .then(response => {
+  //       this.setState({ projects: response.data })
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     })
+  // }
+
   deleteProject(id) {
-    axios.delete(constants.backend_url + "/projects/"+id)
+    axios.delete(constants.backend_url + "/projects/" + id)
       .then(response => { console.log(response.data)});
 
     this.setState({
