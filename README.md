@@ -8,12 +8,13 @@
 - In der MongoDB Datenbank ein User und Passwort anlegen. Zum Beispiel mit API Client Postman oder Insomnia
 
 Post: http://localhost:5001/user/register <br />
-{<br />
-    "email": "example@test.com",<br />
-    "password": "example@test",<br />
-    "passwordCheck": "example@test"<br />
+`
+{
+    "email": "example@test.com",
+    "password": "example@test",
+    "passwordCheck": "example@test"
 }
-
+`
 ## App starten
 - Via terminal im Ordner 'server' `$ npm start` ausführen
 - Via terminal im Ordner 'client' `$ npm start` ausführen
