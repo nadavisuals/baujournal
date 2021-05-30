@@ -7,11 +7,11 @@
 - Im Ordner 'server' im .env file bei 'DATABASE' den entsprechenden Datenbank MongoDB Pfad einfügen. (Lokal oder Online MongoDB Atlas)
 - In der MongoDB Datenbank ein User und Passwort anlegen. Zum Beispiel mit API Client Postman oder Insomnia
 
-Post: http://localhost:5001/user/register
-{
-    "email": "example@test.com",
-    "password": "example@test",
-    "passwordCheck": "example@test"
+Post: http://localhost:5001/user/register <br />
+{<br />
+    "email": "example@test.com",<br />
+    "password": "example@test",<br />
+    "passwordCheck": "example@test"<br />
 }
 
 ## App starten
@@ -20,8 +20,8 @@ Post: http://localhost:5001/user/register
 
 
 ## Demo
-Eine Deployte Version der App ist unter folgendem Link zu finden:
-https://baujournal.herokuapp.com/
+Eine Deployte Version der App ist unter folgendem Link zu finden:<br />
+https://baujournal.herokuapp.com/<br />
 Für Experte ist das Passwort in einem .txt File auf OpenOlat Abgabeordner abgelegt
 
 
