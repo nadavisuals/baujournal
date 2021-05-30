@@ -160,7 +160,7 @@ const DayCreate = () => {
                   <Button variant="dark">Abbrechen</Button>
                 </Link>
                 <div className="p-2"></div>
-                <Button onClick={handleSubmit} variant="dark">
+                <Button onClick={handleSubmit} variant="primary">
                   Speichern
                 </Button>
               </Col>
