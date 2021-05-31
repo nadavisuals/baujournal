@@ -5,14 +5,16 @@
 - Via terminal im Ordner 'server' `$ npm install` ausführen
 - Via terminal im Ordner 'client' `$ npm install` ausführen
 - Im Ordner 'server' im .env file bei 'DATABASE' den entsprechenden Datenbank MongoDB Pfad einfügen. (Lokal oder Online MongoDB Atlas)
-- In der MongoDB Datenbank ein User und Passwort anlegen. Zum Beispiel mit API Client Postman oder Insomnia
+- In der MongoDB Datenbank ein User und Passwort anlegen. Zum Beispiel mit den API Clients Postman oder Insomnia folgenden Post request absenden:
 
-Post: http://localhost:5001/user/register
+Post: http://localhost:5001/user/register <br />
+```
 {
     "email": "example@test.com",
     "password": "example@test",
     "passwordCheck": "example@test"
 }
+```
 
 ## App starten
 - Via terminal im Ordner 'server' `$ npm start` ausführen
@@ -20,8 +22,8 @@ Post: http://localhost:5001/user/register
 
 
 ## Demo
-Eine Deployte Version der App ist unter folgendem Link zu finden:
-https://baujournal.herokuapp.com/
+Eine Deployte Version der App ist unter folgendem Link zu finden:<br />
+https://baujournal.netlify.app/<br />
 Für Experte ist das Passwort in einem .txt File auf OpenOlat Abgabeordner abgelegt
 
 
