@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import UserContext from "./context/userContext";
-import constants from "./constants/constants";
 import Axios from "axios";
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import UserContext from "./context/userContext";
 import DayChooseProject from "./pages/Day-choose-project";
 import DayProjectDetails from "./pages/Day-project-details";
 import DayCreate from "./pages/Day-create";
@@ -13,8 +10,10 @@ import ProjectList from "./pages/Project-list";
 import ProjectCreate from "./pages/Project-create";
 import ProjectUpdate from "./pages/Project-update";
 import Login from "./pages/Login";
+import constants from "./constants/constants";
+document.body.style = "background: lightgray;"
 
-function App() {
+function App() { 
 
   const [userData, setUserData] = useState({
     token: undefined,
@@ -30,13 +29,14 @@ function App() {
       }
 
       const tokenRes = await Axios.post(
-        constants.backend_url+"/user/tokenIsValid",
+        constants.backend_url + "/user/tokenIsValid",
         null,
         { headers: { "x-auth-token": token } }
       );
+
       console.log(tokenRes.data)
       if (tokenRes.data) {
-        const userRes = await Axios.get(constants.backend_url+"/user/", {
+        const userRes = await Axios.get(constants.backend_url + "/user/", {
           headers: { "x-auth-token": token },
         });
         setUserData({

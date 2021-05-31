@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import { Button, Container } from 'react-bootstrap';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Button, Container } from "react-bootstrap";
+import axios from "axios";
 import NavBar from "../components/NavBar";
 import constants from "../constants/constants";
 import "../css/style.css";
@@ -11,10 +11,10 @@ const Project = props => (
     <td>{props.projects.projectNr}</td>
     <td>{props.projects.projectTitle}</td>
     <td className="text-right">
-      {/* <Link to={"/update-project/" + props.projects.projectNr + "/" + props.projects.projectTitle + "/" + props.projects._id}>Bearbeiten</Link> | <a href="#" onClick={() => { props.deleteProject(props.projects._id) }}>Löschen</a> */}
-      {/* <Button ><Link className="text-white" to={"/update-project/" + props.projects.projectNr + "/" + props.projects.projectTitle + "/" + props.projects._id}>Bearbeiten</Link></Button>  <Button onClick={() => { props.deleteProject(props.projects._id) }}>Löschen</Button> */}
-      <Link to={"/update-project/" + props.projects.projectNr + "/" + props.projects.projectTitle + "/" + props.projects._id}><Button variant="link">Bearbeiten</Button></Link> | <Button variant="link" onClick={() => { props.deleteProject(props.projects._id) }}>Löschen</Button>
-
+      <Link to={"/update-project/" + props.projects.projectNr + "/" + props.projects.projectTitle + "/" + props.projects._id}>
+        <Button variant="link">Bearbeiten</Button>
+      </Link>
+       | <Button variant="link" onClick={() => { props.deleteProject(props.projects._id) }}>Löschen</Button>
     </td>
   </tr>
 )
@@ -37,16 +37,6 @@ export default class ProjectList extends Component {
         console.log(error);
       })
   }
-
-  // componentDidUpdate() {
-  //   axios.get(constants.backend_url + "/projects/")
-  //     .then(response => {
-  //       this.setState({ projects: response.data })
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     })
-  // }
 
   deleteProject(id) {
     axios.delete(constants.backend_url + "/projects/" + id)
@@ -71,9 +61,7 @@ render() {
         <div className="container content">
           <h5>Projekt Manager</h5>
           <div style={{ borderTop: "1px solid lightgray ", marginBottom: 20 }}></div>
-          {/* <Button className="mb-3" href="/create-project" variant="primary">Projekt hinzufügen</Button> */}
           <Link to="/create-project"> <Button className="mb-3" variant="primary" type="button" >Projekt hinzufügen</Button></Link>
-          
           <table className="table">
             <thead className="thead-light">
               <tr>

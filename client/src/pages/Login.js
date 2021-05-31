@@ -42,7 +42,7 @@ export default function Login() {
           style={{
             maxWidth: "400px",
             marginTop: "60px",
-            backgroundColor: " #fff",
+          //  backgroundColor: " #fff",
             padding: "50px",
           }}
           className="text-center container"

@@ -21,10 +21,10 @@ Post: http://localhost:5001/user/register <br />
 - Via terminal im Ordner 'client' `$ npm start` ausführen
 
 
-## Demo
+## Live Demo
 Eine Deployte Version der App ist unter folgendem Link zu finden:<br />
 https://baujournal.netlify.app/<br />
-Für Experte ist das Passwort in einem .txt File auf OpenOlat Abgabeordner abgelegt
+Für Prüfungs-Experte ist das Passwort in einem .txt File auf OpenOlat Abgabeordner abgelegt
 
 
 ### Netlify Status Badge
