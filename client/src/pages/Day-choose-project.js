@@ -5,7 +5,6 @@ import NavBar from "../components/NavBar";
 import DropDown from "../components/DropDown";
 import "../css/style.css";
 
-
 const DayChooseProject = () => {
 
   const history = useHistory();
@@ -20,6 +19,8 @@ const DayChooseProject = () => {
       <NavBar />
         <br />
       <div className="container content">
+        <h5>Baujournal</h5>
+        <br />
         <DropDown />
       </div>
     </Container>

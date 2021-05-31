@@ -8,18 +8,7 @@
     color: black;
   }
 
-   /* mouse over link */
  .container a:hover {
   color: rgb(81, 156, 255);
   text-decoration: none;
 }
-
-  /* visited link */
- /* a:visited {
-    color: green;
-  } */
-  
-  /* selected link */
-  /* .container a:active {
-    color: red;
-  }  */
