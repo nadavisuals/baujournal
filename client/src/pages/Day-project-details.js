@@ -6,7 +6,6 @@ import constants from "../constants/constants";
 import Pagination from "../components/Pagination";
 import NavBar from "../components/NavBar";
 import DropDown from "../components/DropDown";
-// import "../css/style.css";
 
 function DayList () {
 
@@ -142,7 +141,7 @@ function DayList () {
                                 <Button
                                   className="p-1"
                                   size="lg"
-                                  variant="primary"
+                                  variant="dark"
                                 >
                                   Bearbeiten
                                 </Button>

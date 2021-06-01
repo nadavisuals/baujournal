@@ -71,6 +71,10 @@ router.route("/get-day-detail/:id").get((req, res) => {
     .catch((err) => res.status(400).json("Error : " + err));
 });
 
+
+
+
+
 //** Update Day **//
 router.route("/update/:id").post((req, res) => {
   Day.findById(req.params.id)

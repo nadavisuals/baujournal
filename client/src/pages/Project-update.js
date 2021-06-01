@@ -26,7 +26,7 @@ const ProjectUpdate = (props) => {
       .post(constants.backend_url + "/projects/update/" + projectId, NewProject)
       .then((res) => {
         setError(res.data.msg);
-        console.log(res.data.msg);
+    //    console.log(res.data.msg);
         if (res.data.msg === "Projekt aktualisiert!") {
           history.goBack();
         }

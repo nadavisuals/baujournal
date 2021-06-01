@@ -12,7 +12,6 @@ export default function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [error, setError] = useState();
-
   const { setUserData } = useContext(UserContext);
   const history = useHistory();
 
@@ -42,7 +41,6 @@ export default function Login() {
           style={{
             maxWidth: "400px",
             marginTop: "60px",
-          //  backgroundColor: " #fff",
             padding: "50px",
           }}
           className="text-center container"
