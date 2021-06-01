@@ -34,7 +34,7 @@ function App() {
         { headers: { "x-auth-token": token } }
       );
 
-      console.log(tokenRes.data)
+  //    console.log(tokenRes.data)
       if (tokenRes.data) {
         const userRes = await Axios.get(constants.backend_url + "/user/", {
           headers: { "x-auth-token": token },
