@@ -72,9 +72,6 @@ router.route("/get-day-detail/:id").get((req, res) => {
 });
 
 
-
-
-
 //** Update Day **//
 router.route("/update/:id").post((req, res) => {
   Day.findById(req.params.id)

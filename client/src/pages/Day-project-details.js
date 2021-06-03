@@ -27,12 +27,12 @@ function DayList () {
       });
   },[projectNr]);
 
+
   const handleDelete = (id) => {
     axios
       .delete(constants.backend_url + "/days/" + id)
       .then((res) => console.log(res.data));
-      window.location.replace(window.location.href)
-     // window.location.reload(false);
+      window.location.reload(false);
   };
 
   const indexOfLastPost = currentPage * postsPerPage;
