@@ -31,7 +31,8 @@ function DayList () {
     axios
       .delete(constants.backend_url + "/days/" + id)
       .then((res) => console.log(res.data));
-      window.location.reload(false);
+      window.location.replace(window.location.href)
+     // window.location.reload(false);
   };
 
   const indexOfLastPost = currentPage * postsPerPage;

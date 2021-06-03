@@ -38,11 +38,11 @@ const NavBar = () => {
           <Nav className="mr-auto"></Nav>
           <Nav>
             <Nav.Link>
-              <Link className="active" to="/day-choose-project">Baujournal</Link>
+              <Link to="/day-choose-project">Baujournal</Link>
             </Nav.Link>
 
             <Nav.Link>
-              <Link className="active" to="/projects">Projekte</Link>
+              <Link to="/projects">Projekte</Link>
             </Nav.Link>
 
             <Nav.Link eventKey={2} onClick={() => logout()}>
