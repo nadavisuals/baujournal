@@ -11,7 +11,9 @@ router.post("/register", async (req, res) => {
     // validate
 
     if (!email || !password || !passwordCheck)
-      return res.status(400).json({ msg: "Not all fields have been entered." });
+      return res
+        .status(400)
+        .json({ msg: "Not all fields have been entered." });
 
     if (password.length < 5)
       return res
@@ -37,12 +39,16 @@ router.post("/register", async (req, res) => {
       email,
       password: passwordHash,
     });
+
     const savedUser = await newUser.save();
     res.json(savedUser);
+
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
+
+
 
 router.post("/login", async (req, res) => {
   try {
@@ -73,6 +79,8 @@ router.post("/login", async (req, res) => {
   }
 });
 
+
+
 router.delete("/delete", auth, async (req, res) => {
   try {
     const deletedUser = await User.findByIdAndDelete(req.user);
@@ -81,6 +89,8 @@ router.delete("/delete", auth, async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+
 
 router.post("/tokenIsValid", async (req, res) => {
   try {
@@ -98,6 +108,8 @@ router.post("/tokenIsValid", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+
 
 router.get("/", auth, async (req, res) => {
   const user = await User.findById(req.user);

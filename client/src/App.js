@@ -11,7 +11,8 @@ import ProjectCreate from "./pages/Project-create";
 import ProjectUpdate from "./pages/Project-update";
 import Login from "./pages/Login";
 import constants from "./constants/constants";
-document.body.style = "background: lightgray;"
+
+document.body.style = "background: #ebebeb;"
 
 function App() { 
 
