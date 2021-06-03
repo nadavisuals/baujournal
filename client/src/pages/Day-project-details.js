@@ -27,7 +27,6 @@ function DayList () {
       });
   },[projectNr]);
 
-
   const handleDelete = (id) => {
     axios
       .delete(constants.backend_url + "/days/" + id)
