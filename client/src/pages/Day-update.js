@@ -139,11 +139,11 @@ class DayUpdate extends Component {
                         <Form.Label>Uhrzeit von:</Form.Label>
                         <input
                           value={this.state.timeFrom}
-                          // onChange={(e) =>
-                          //   this.setState({
-                          //     timeFrom: e.target.value,
-                          //   })
-                          // }
+                          onChange={(e) =>
+                            this.setState({
+                              timeFrom: e.target.value,
+                            })
+                          }
                           style={{ width: "70%" }}
                           type="time"
                           className="form-control"
