@@ -39,6 +39,7 @@ class DayUpdate extends Component {
     this.getDayData(this.props.match.params.id);
   }
 
+
   getDayData(id) {
     axios
       .get(constants.backend_url + "/days/get-day-detail/" + id)
@@ -122,11 +123,11 @@ class DayUpdate extends Component {
                     <Form.Label>Datum</Form.Label>
                     <input
                       value={this.state.makeDate}
-                      onChange={(e) =>
-                        this.setState({
-                          makeDate: e.target.value,
-                        })
-                      }
+                      // onChange={(e) =>
+                      //   this.setState({
+                      //     makeDate: e.target.value,
+                      //   })
+                      // }
                       style={{ width: "50%" }}
                       type="date"
                       className="form-control"
@@ -138,11 +139,11 @@ class DayUpdate extends Component {
                         <Form.Label>Uhrzeit von:</Form.Label>
                         <input
                           value={this.state.timeFrom}
-                          onChange={(e) =>
-                            this.setState({
-                              timeFrom: e.target.value,
-                            })
-                          }
+                          // onChange={(e) =>
+                          //   this.setState({
+                          //     timeFrom: e.target.value,
+                          //   })
+                          // }
                           style={{ width: "70%" }}
                           type="time"
                           className="form-control"
