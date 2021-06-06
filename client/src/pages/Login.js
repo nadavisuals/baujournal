@@ -4,11 +4,10 @@ import { Form, Button } from "react-bootstrap";
 import Axios from "axios";
 import UserContext from "../context/userContext";
 import ErrorNotice from "../components/ErrorNotice";
-import constants from "../constants/constants"
+import constants from "../constants/constants";
 import "../css/style.css";
 
 export default function Login() {
-
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [error, setError] = useState();
@@ -54,7 +53,7 @@ export default function Login() {
               />
             )}
           </Form.Group>
-          
+
           <Form.Group>
             <Form.Label>Benutzer</Form.Label>
             <Form.Control
@@ -73,10 +72,11 @@ export default function Login() {
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit" onClick={(e) => submit(e)}>Login</Button>
-
+          <Button variant="primary" type="submit" onClick={(e) => submit(e)}>
+            Login
+          </Button>
         </Form>
       </div>
     </div>
   );
-};
+}

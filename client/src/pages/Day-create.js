@@ -156,7 +156,9 @@ const DayCreate = () => {
           <Form.Group>
             <Row>
               <Col className="d-flex justify-content-end">
-                <Link to={"/day-project-details/" + projectNr + "/" + projectTitle}>
+                <Link
+                  to={"/day-project-details/" + projectNr + "/" + projectTitle}
+                >
                   <Button variant="dark">Abbrechen</Button>
                 </Link>
                 <div className="p-2"></div>
@@ -170,7 +172,6 @@ const DayCreate = () => {
       </div>
       {/* Footer */}
       <div></div>
-    
     </Container>
   );
 };

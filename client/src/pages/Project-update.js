@@ -26,12 +26,10 @@ const ProjectUpdate = (props) => {
       .post(constants.backend_url + "/projects/update/" + projectId, NewProject)
       .then((res) => {
         setError(res.data.msg);
-    //    console.log(res.data.msg);
         if (res.data.msg === "Projekt aktualisiert!") {
           history.goBack();
         }
       });
-
   };
 
   return (
@@ -44,15 +42,15 @@ const ProjectUpdate = (props) => {
           <h5 className="text-muted">Projekt bearbeiten</h5>
         </div>
 
-         {error && (
+        {error && (
           <ErrorNotice message={error} clearError={() => setError(undefined)} />
-        )} 
+        )}
 
         <div>
           <Form>
             <Form.Group style={{ maxWidth: "360px" }}></Form.Group>
 
-            <Form.Group as={Row} >
+            <Form.Group as={Row}>
               <Form.Label column sm="2">
                 Projekt Nr.:
               </Form.Label>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import constants from "../constants/constants";
 import { Form, Row, Col } from "react-bootstrap";
-//
+
 const DropDown = ({ nr, title }) => {
   const [allProjects, setAllProjects] = useState([]);
   const [projectNR, setprojectNR] = useState("");
@@ -20,9 +20,8 @@ const DropDown = ({ nr, title }) => {
       .catch((error) => {
         console.log(error);
       });
-  },[nr, title]);
+  }, [nr, title]);
 
- 
   return (
     <div className="dropdown">
       <button
@@ -36,25 +35,30 @@ const DropDown = ({ nr, title }) => {
         Projekt auswählen
       </button>
       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      {allProjects.sort((a, b) => a.projectNr - b.projectNr).map((item) => {
-          return (
-            <Link
-              key={item._id}
-              className="dropdown-item"
-              onClick={() => {
-                setprojectNR(item.projectNr);
-                setProjectTitle(item.projectTitle);
-              }}
-              to={
-                "/day-project-details/" + item.projectNr + "/" + item.projectTitle
-              }
-            >
-              {item.projectNr}
-              {"   "}
-              {item.projectTitle}
-            </Link>
-          );
-        })}
+        {allProjects
+          .sort((a, b) => a.projectNr - b.projectNr)
+          .map((item) => {
+            return (
+              <Link
+                key={item._id}
+                className="dropdown-item"
+                onClick={() => {
+                  setprojectNR(item.projectNr);
+                  setProjectTitle(item.projectTitle);
+                }}
+                to={
+                  "/day-project-details/" +
+                  item.projectNr +
+                  "/" +
+                  item.projectTitle
+                }
+              >
+                {item.projectNr}
+                {"   "}
+                {item.projectTitle}
+              </Link>
+            );
+          })}
       </div>
       <div className="my-4">
         <Form.Group as={Row} controlId="formPlaintextEmail">

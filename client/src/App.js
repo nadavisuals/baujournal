@@ -12,10 +12,9 @@ import ProjectUpdate from "./pages/Project-update";
 import Login from "./pages/Login";
 import constants from "./constants/constants";
 
-document.body.style = "background: #ebebeb;"
+document.body.style = "background: #ebebeb;";
 
-function App() { 
-
+function App() {
   const [userData, setUserData] = useState({
     token: undefined,
     user: undefined,
@@ -35,7 +34,6 @@ function App() {
         { headers: { "x-auth-token": token } }
       );
 
-  //    console.log(tokenRes.data)
       if (tokenRes.data) {
         const userRes = await Axios.get(constants.backend_url + "/user/", {
           headers: { "x-auth-token": token },
@@ -45,7 +43,7 @@ function App() {
           user: userRes.data,
         });
       }
-     };
+    };
 
     checkLoggedIn();
   }, []);
@@ -53,18 +51,16 @@ function App() {
   return (
     <Router>
       <UserContext.Provider value={{ userData, setUserData }}>
-      <div className="container">
-        
-        <Route path="/" exact component={Login} />
-        <Route path="/day-choose-project" exact component={DayChooseProject} />
-        <Route path="/day-project-details/:projectNr/:projectTitle" exact component={DayProjectDetails} />
-        <Route path="/day-create/:projectNr/:projectTitle" exact component={DayCreate} />
-        <Route path="/projects" exact component={ProjectList} />
-        <Route path="/create-project" exact component={ProjectCreate} />
-        <Route path="/update-project/:projectNr/:projectTitle/:projectId" exact component={ProjectUpdate} />
-        <Route path="/update-day/:projectNr/:projectTitle/:id" exact component={DayUpdate} />
-
-      </div>
+        <div className="container">
+          <Route path="/" exact component={Login} />
+          <Route path="/day-choose-project" exact component={DayChooseProject} />
+          <Route path="/day-project-details/:projectNr/:projectTitle" exact component={DayProjectDetails} />
+          <Route path="/day-create/:projectNr/:projectTitle" exact component={DayCreate} />
+          <Route path="/projects" exact component={ProjectList} />
+          <Route path="/create-project" exact component={ProjectCreate} />
+          <Route path="/update-project/:projectNr/:projectTitle/:projectId" exact component={ProjectUpdate} />
+          <Route path="/update-day/:projectNr/:projectTitle/:id" exact component={DayUpdate} />
+        </div>
       </UserContext.Provider>
     </Router>
   );
