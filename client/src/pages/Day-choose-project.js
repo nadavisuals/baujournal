@@ -5,9 +5,7 @@ import NavBar from "../components/NavBar";
 import DropDown from "../components/DropDown";
 import "../css/style.css";
 
-
 const DayChooseProject = () => {
-
   const history = useHistory();
   useEffect(() => {
     if (localStorage.getItem("auth-token") === "") {
@@ -18,10 +16,10 @@ const DayChooseProject = () => {
   return (
     <Container>
       <NavBar />
-        <br />
+      <br />
       <div className="container content">
         <h5>Baujournal</h5>
-       <br />
+        <br />
         <DropDown />
       </div>
     </Container>

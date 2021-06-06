@@ -2,19 +2,19 @@ const router = require("express").Router();
 let Day = require("../models/days.model");
 
 //** Get All Day **//
-router.route('/').get((req, res) => {
+router.route("/").get((req, res) => {
   Day.find()
-    .then(project => res.json(project))
-    .catch(err => res.status(400).json("Error: " + err));
+    .then((project) => res.json(project))
+    .catch((err) => res.status(400).json("Error: " + err));
 });
 
 //** Get All Days from ProjectNr **//
-   router.route("/get-days/:projectNr").post((req, res) => {
-    Day.find({ projectNr: req.params.projectNr })
-      .sort({ date: -1 })
-      .then((project) => res.json(project))
-      .catch((err) => res.status(400).json("Error : " + err));
-  });
+router.route("/get-days/:projectNr").post((req, res) => {
+  Day.find({ projectNr: req.params.projectNr })
+    .sort({ date: -1 })
+    .then((project) => res.json(project))
+    .catch((err) => res.status(400).json("Error : " + err));
+});
 
 //** Add Day Details **//
 router.post("/add", async (req, res) => {
@@ -44,7 +44,7 @@ router.post("/add", async (req, res) => {
     safety,
   });
 
-   const date_available = await Day.findOne({
+  const date_available = await Day.findOne({
     projectNr: projectNr,
     date: date,
   });
@@ -70,7 +70,6 @@ router.route("/get-day-detail/:id").get((req, res) => {
     .then((project) => res.json(project))
     .catch((err) => res.status(400).json("Error : " + err));
 });
-
 
 //** Update Day **//
 router.route("/update/:id").post((req, res) => {

@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
-import userContext from "../context/userContext"
+import userContext from "../context/userContext";
 import "../css/navbar.css";
 
 const NavBar = () => {
-
   const { setUserData } = useContext(userContext);
-
   const history = useHistory();
 
   const logout = () => {
@@ -46,14 +44,12 @@ const NavBar = () => {
             </Nav.Link>
 
             <Nav.Link eventKey={2} onClick={() => logout()}>
-            <Link to="#" >Logout</Link>
-              
+              <Link to="#">Logout</Link>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </div>
     </Navbar>
-
   );
 };
 

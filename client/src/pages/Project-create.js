@@ -5,7 +5,6 @@ import axios from "axios";
 import NavBar from "../components/NavBar";
 import constants from "../constants/constants";
 import ErrorNotice from "../components/ErrorNotice";
-//import "../css/style.css";
 
 const ProjectCreate = () => {
   const history = useHistory();
@@ -88,13 +87,16 @@ const ProjectCreate = () => {
                   </Link>
 
                   <div className="p-2"></div>
-                  <Button onClick={handleSubmit} type="submit" variant="primary">
+                  <Button
+                    onClick={handleSubmit}
+                    type="submit"
+                    variant="primary"
+                  >
                     Speichern
                   </Button>
                 </Col>
               </Row>
             </Form.Group>
-
           </Form>
         </div>
       </div>

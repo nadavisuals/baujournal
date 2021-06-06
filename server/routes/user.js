@@ -9,11 +9,8 @@ router.post("/register", async (req, res) => {
     let { email, password, passwordCheck } = req.body;
 
     // validate
-
     if (!email || !password || !passwordCheck)
-      return res
-        .status(400)
-        .json({ msg: "Not all fields have been entered." });
+      return res.status(400).json({ msg: "Not all fields have been entered." });
 
     if (password.length < 5)
       return res
@@ -33,7 +30,7 @@ router.post("/register", async (req, res) => {
         .json({ msg: "An account with this email already exists." });
 
     const salt = await bcrypt.genSalt();
-    const passwordHash = await bcrypt.hash(password, salt); 
+    const passwordHash = await bcrypt.hash(password, salt);
 
     const newUser = new User({
       email,
@@ -42,13 +39,10 @@ router.post("/register", async (req, res) => {
 
     const savedUser = await newUser.save();
     res.json(savedUser);
-
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
-
-
 
 router.post("/login", async (req, res) => {
   try {
@@ -60,9 +54,7 @@ router.post("/login", async (req, res) => {
 
     const user = await User.findOne({ email: email });
     if (!user)
-      return res
-        .status(400)
-        .json({ msg: "Dieser User exisitiert nicht!" });
+      return res.status(400).json({ msg: "Dieser User exisitiert nicht!" });
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ msg: "Ungültiges Passwort" });
@@ -79,8 +71,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-
-
 router.delete("/delete", auth, async (req, res) => {
   try {
     const deletedUser = await User.findByIdAndDelete(req.user);
@@ -89,8 +79,6 @@ router.delete("/delete", auth, async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
-
 
 router.post("/tokenIsValid", async (req, res) => {
   try {
@@ -109,13 +97,11 @@ router.post("/tokenIsValid", async (req, res) => {
   }
 });
 
-
-
 router.get("/", auth, async (req, res) => {
   const user = await User.findById(req.user);
   res.json({
     id: user._id,
-    email:user.email
+    email: user.email,
   });
 });
 

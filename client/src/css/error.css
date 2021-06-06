@@ -1,19 +1,20 @@
 .error-notice {
-    margin: 1rem 0;
-    padding: 0.5rem;
-    border: 1px solid red;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f8d6d6;
-    color: red;
-  }
-  .error-notice button {
-    background-color: Transparent;
-      background-repeat:no-repeat;
-      border: none;
-      cursor:pointer;
-      overflow: hidden;
-      outline:none;
-  }
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border: 1px solid red;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8d6d6;
+  color: red;
+}
+
+.error-notice button {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
