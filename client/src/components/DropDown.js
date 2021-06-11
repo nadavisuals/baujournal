@@ -39,9 +39,9 @@ const DropDown = ({ nr, title }) => {
           .sort((a, b) => a.projectNr - b.projectNr)
           .map((item) => {
             return (
-              <Link
+              <Link 
                 key={item._id}
-                className="dropdown-item"
+                className="dropdown-item ml-2"
                 onClick={() => {
                   setprojectNR(item.projectNr);
                   setProjectTitle(item.projectTitle);
