@@ -83,7 +83,7 @@ export default class ProjectList extends Component {
         <NavBar />
         <br />
         <div className="container content">
-          <h5>Projekt Manager</h5>
+          <h5>Projektmanager</h5>
           <div
             style={{ borderTop: "1px solid lightgray ", marginBottom: 20 }}
           ></div>

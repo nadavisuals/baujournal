@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Navbar, Nav } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import userContext from "../context/userContext";
 import "../css/navbar.css";
 
@@ -35,17 +35,10 @@ const NavBar = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto"></Nav>
           <Nav>
-            <Nav.Link>
-              <Link to="/day-choose-project">Baujournal</Link>
+            <Nav.Link as={NavLink} to="/day-choose-project">Baujournal{" "}
             </Nav.Link>
-
-            <Nav.Link>
-              <Link to="/projects">Projekte</Link>
-            </Nav.Link>
-
-            <Nav.Link eventKey={2} onClick={() => logout()}>
-              <Link to="#">Logout</Link>
-            </Nav.Link>
+            <NavLink to="/projects">Projekte</NavLink>
+            <Nav.Link onClick={() => logout()}>Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </div>

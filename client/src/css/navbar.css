@@ -13,6 +13,10 @@
   text-decoration: none;
 }
 
+.container .active{
+  color: rgb(81, 156, 255) !important
+ }
+
 .container .navi {
   padding-left: 0px;
   margin-left: 0px;
