@@ -50,7 +50,7 @@ const DayCreate = () => {
   };
 
   return (
-    <Container>
+    <div>
       <NavBar />
       <div className="container content">
         <Form>
@@ -172,7 +172,7 @@ const DayCreate = () => {
       </div>
       {/* Footer */}
       <div></div>
-    </Container>
+    </div>
   );
 };
 

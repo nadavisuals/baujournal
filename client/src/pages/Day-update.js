@@ -92,7 +92,7 @@ class DayUpdate extends Component {
 
   render() {
     return (
-      <Container>
+      <div>
         <NavBar />
         <br />
         <div className="container content">
@@ -118,6 +118,7 @@ class DayUpdate extends Component {
                 <div>
                   <Form.Group>
                     <Form.Label>Datum</Form.Label>
+                    
                     <input
                       readOnly value={this.state.makeDate}
                       style={{ width: "50%" }}
@@ -271,7 +272,7 @@ class DayUpdate extends Component {
             })}
           </Form>
         </div>
-      </Container>
+      </div>
     );
   }
 }

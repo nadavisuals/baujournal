@@ -53,7 +53,7 @@ function App() {
       <UserContext.Provider value={{ userData, setUserData }}>
  
 
-        <div className="container">
+        {/* <div className="container"> */}
           <Route path="/" exact component={Login} />
           <Route path="/day-choose-project" exact component={DayChooseProject} />
           <Route path="/day-project-details/:projectNr/:projectTitle" exact component={DayProjectDetails} />
@@ -62,7 +62,7 @@ function App() {
           <Route path="/create-project" exact component={ProjectCreate} />
           <Route path="/update-project/:projectNr/:projectTitle/:projectId" exact component={ProjectUpdate} />
           <Route path="/update-day/:projectNr/:projectTitle/:id" exact component={DayUpdate} />
-        </div>
+        {/* </div> */}
 
 
       </UserContext.Provider>

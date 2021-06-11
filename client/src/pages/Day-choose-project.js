@@ -14,7 +14,7 @@ const DayChooseProject = () => {
   }, [history]);
 
   return (
-    <Container>
+    <div>
       <NavBar />
       <br />
       <div className="container content">
@@ -22,7 +22,7 @@ const DayChooseProject = () => {
         <br />
         <DropDown />
       </div>
-    </Container>
+    </div>
   );
 };
 
