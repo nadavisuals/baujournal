@@ -51,6 +51,8 @@ function App() {
   return (
     <Router>
       <UserContext.Provider value={{ userData, setUserData }}>
+ 
+
         <div className="container">
           <Route path="/" exact component={Login} />
           <Route path="/day-choose-project" exact component={DayChooseProject} />
@@ -61,6 +63,8 @@ function App() {
           <Route path="/update-project/:projectNr/:projectTitle/:projectId" exact component={ProjectUpdate} />
           <Route path="/update-day/:projectNr/:projectTitle/:id" exact component={DayUpdate} />
         </div>
+
+
       </UserContext.Provider>
     </Router>
   );

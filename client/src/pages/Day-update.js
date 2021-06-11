@@ -67,7 +67,7 @@ class DayUpdate extends Component {
       });
   }
 
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault();
     const NewDay = {
       projectNr: this.props.match.params.projectNr,
@@ -82,10 +82,8 @@ class DayUpdate extends Component {
       safety: this.state.safety,
     };
 
-    axios
-      .post(constants.backend_url + "/days/update/" + this.state.dayId, NewDay)
-      .then((res) => console.log(res.data));
-
+    const res = await axios.post(constants.backend_url + "/days/update/" + this.state.dayId, NewDay)
+    console.log(res.data)
     this.setState({
       error: "Successfully Updated",
     });
@@ -121,7 +119,7 @@ class DayUpdate extends Component {
                   <Form.Group>
                     <Form.Label>Datum</Form.Label>
                     <input
-                      value={this.state.makeDate}
+                      readOnly value={this.state.makeDate}
                       style={{ width: "50%" }}
                       type="date"
                       className="form-control"
