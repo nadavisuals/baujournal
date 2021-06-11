@@ -6,6 +6,7 @@ import constants from "../constants/constants";
 import Pagination from "../components/Pagination";
 import NavBar from "../components/NavBar";
 import DropDown from "../components/DropDown";
+import "../css/style.css";
 
 function DayList() {
   let { projectNr, projectTitle } = useParams();
@@ -39,7 +40,7 @@ function DayList() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <Container>
+    <div>
       <NavBar />
       <br />
       <div className="container content">
@@ -164,7 +165,7 @@ function DayList() {
           </Form.Group>
         </Form>
       </div>
-    </Container>
+    </div>
   );
 }
 

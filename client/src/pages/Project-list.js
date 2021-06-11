@@ -79,7 +79,7 @@ export default class ProjectList extends Component {
 
   render() {
     return (
-      <Container>
+      <div>
         <NavBar />
         <br />
         <div className="container content">
@@ -104,7 +104,7 @@ export default class ProjectList extends Component {
             <tbody>{this.projectList()}</tbody>
           </table>
         </div>
-      </Container>
+      </div>
     );
   }
 }

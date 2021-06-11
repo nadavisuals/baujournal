@@ -66,7 +66,8 @@ const DropDown = ({ nr, title }) => {
             Projekt Nr.:
           </Form.Label>
           <Col sm="10">
-            <Form.Control plaintext readOnly defaultValue={projectNR} />
+            {/* <Form.Control plaintext readOnly defaultValue={projectNR} /> */}
+            <Form.Label column sm="2"> {projectNR} </Form.Label>
           </Col>
         </Form.Group>
         <Form.Group as={Row} controlId="formPlaintextEmail">
@@ -74,7 +75,8 @@ const DropDown = ({ nr, title }) => {
             Projekt Titel:
           </Form.Label>
           <Col sm="10">
-            <Form.Control plaintext readOnly defaultValue={projectTitle} />
+            {/* <Form.Control plaintext readOnly defaultValue={projectTitle} /> */}
+            <Form.Label column sm="2"> {projectTitle} </Form.Label>
           </Col>
         </Form.Group>
       </div>
