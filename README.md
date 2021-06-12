@@ -7,7 +7,7 @@
 - MongoDB installieren 
     - Compass lokal installieren https://docs.mongodb.com/compass/master/install/ 
     - oder MongoDB Atlas online https://www.mongodb.com/cloud/atlas verwenden
-- Im Ordner 'server' das File .env.dev umbenennen und Inhalt anpassen. (Beim download von OpenOlat muss nur Inhalt von .env angepasst werden)
+- Im Ordner 'server' das File .env.dev zu .env umbenennen und Inhalt anpassen. (Beim download von OpenOlat muss nur Inhalt von .env angepasst werden)
     - Bei 'DATABASE' den entsprechenden Datenbank MongoDB Pfad einfügen. (Lokal oder auf MongoDB Atlas)
     - Bei 'JWT_SECRET' irgend ein Passwort eingeben
 - In der MongoDB Datenbank ein User und Passwort anlegen. Zum Beispiel mit den API Clients Postman oder Insomnia folgenden Post request absenden:
