@@ -1,6 +1,6 @@
 # Diplomarbeit Baujournal
 
-## Project Setup
+## Projekt Setup
 - GIT Repository clonen oder ZIP download
 - Via terminal in den Ordner 'client' wechseln und `$ npm install` ausführen -> dependencies werden installiert
 - Via terminal in den Ordner 'server' wechseln und `$ npm install` ausführen -> dependencies werden installiert
@@ -31,7 +31,7 @@ Post: http://localhost:5001/user/register <br />
 ## Live Demo
 Eine Deployte Version der App ist unter folgendem Link zu finden:<br />
 https://baujournal.netlify.app/<br />
-Für Prüfungs-Experte ist das Passwort in einem .txt File auf OpenOlat Abgabeordner abgelegt
+Für Prüfungs-Experte ist das Passwort in einem .txt File auf OpenOlat im Abgabeordner abgelegt
 
 
 ### Netlify Status Badge
