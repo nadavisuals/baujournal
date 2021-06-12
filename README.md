@@ -2,9 +2,14 @@
 
 ## Project Setup
 - GIT Repository clonen oder ZIP download
-- Via terminal im Ordner 'server' `$ npm install` ausführen
-- Via terminal im Ordner 'client' `$ npm install` ausführen
-- Im Ordner 'server' im .env file bei 'DATABASE' den entsprechenden Datenbank MongoDB Pfad einfügen. (Lokal oder Online MongoDB Atlas)
+- Via terminal in den Ordner 'client' wechseln und `$ npm install` ausführen -> dependencies werden installiert
+- Via terminal in den Ordner 'server' wechseln und `$ npm install` ausführen -> dependencies werden installiert
+- MongoDB installieren 
+    - Compass lokal installieren https://docs.mongodb.com/compass/master/install/ 
+    - oder MongoDB Atlas online https://www.mongodb.com/cloud/atlas verwenden
+- Im Ordner 'server' das File .env.dev umbenennen und Inhalt anpassen. (Beim download von OpenOlat muss nur Inhalt von .env angepasst werden)
+    - Bei 'DATABASE' den entsprechenden Datenbank MongoDB Pfad einfügen. (Lokal oder auf MongoDB Atlas)
+    - Bei 'JWT_SECRET' irgend ein Passwort eingeben
 - In der MongoDB Datenbank ein User und Passwort anlegen. Zum Beispiel mit den API Clients Postman oder Insomnia folgenden Post request absenden:
 
 Post: http://localhost:5001/user/register <br />
