@@ -1,18 +1,25 @@
 # Diplomarbeit Baujournal
 
-## Project Setup
+## Projekt Setup
 - GIT Repository clonen oder ZIP download
-- Via terminal im Ordner 'server' `$ npm install` ausführen
-- Via terminal im Ordner 'client' `$ npm install` ausführen
-- Im Ordner 'server' im .env file bei 'DATABASE' den entsprechenden Datenbank MongoDB Pfad einfügen. (Lokal oder Online MongoDB Atlas)
-- In der MongoDB Datenbank ein User und Passwort anlegen. Zum Beispiel mit den API Clients Postman oder Insomnia folgenden Post request absenden:
+- Via terminal in den Ordner 'client' wechseln und `$ npm install` ausführen -> dependencies werden installiert
+- Via terminal in den Ordner 'server' wechseln und `$ npm install` ausführen -> dependencies werden installiert
+- MongoDB installieren 
+    - Compass lokal installieren https://docs.mongodb.com/compass/master/install/ 
+    - oder MongoDB Atlas online https://www.mongodb.com/cloud/atlas verwenden
+- Im Ordner 'server' das File .env.dev zu .env umbenennen und Inhalt anpassen. 
+  (Beim download von OpenOlat muss nur Inhalt von .env angepasst werden)
+    - Bei 'DATABASE' den entsprechenden Datenbank MongoDB Pfad einfügen. (Lokal oder auf MongoDB Atlas)
+    - Bei 'JWT_SECRET' irgend ein beliebiges Passwort einfügen
+- Um die App zu nutzen muss man sich einloggen. Hierfür muss in der MongoDB Datenbank ein User und Passwort angelegt werden. 
+    - Zum Beispiel mit den API Clients Postman oder Insomnia folgenden Post request absenden:
 
 Post: http://localhost:5001/user/register <br />
 ```
 {
     "email": "example@test.com",
-    "password": "example@test",
-    "passwordCheck": "example@test"
+    "password": "examplePassword",
+    "passwordCheck": "examplePassword"
 }
 ```
 
@@ -24,7 +31,7 @@ Post: http://localhost:5001/user/register <br />
 ## Live Demo
 Eine Deployte Version der App ist unter folgendem Link zu finden:<br />
 https://baujournal.netlify.app/<br />
-Für Prüfungs-Experte ist das Passwort in einem .txt File auf OpenOlat Abgabeordner abgelegt
+Für Prüfungs-Experte ist das Passwort in einem .txt File auf OpenOlat im Abgabeordner abgelegt
 
 
 ### Netlify Status Badge

@@ -11,6 +11,7 @@ import ProjectCreate from "./pages/Project-create";
 import ProjectUpdate from "./pages/Project-update";
 import Login from "./pages/Login";
 import constants from "./constants/constants";
+import "./css/style.css";
 
 document.body.style = "background: #ebebeb;";
 
@@ -51,9 +52,7 @@ function App() {
   return (
     <Router>
       <UserContext.Provider value={{ userData, setUserData }}>
- 
 
-        {/* <div className="container"> */}
           <Route path="/" exact component={Login} />
           <Route path="/day-choose-project" exact component={DayChooseProject} />
           <Route path="/day-project-details/:projectNr/:projectTitle" exact component={DayProjectDetails} />
@@ -62,8 +61,6 @@ function App() {
           <Route path="/create-project" exact component={ProjectCreate} />
           <Route path="/update-project/:projectNr/:projectTitle/:projectId" exact component={ProjectUpdate} />
           <Route path="/update-day/:projectNr/:projectTitle/:id" exact component={DayUpdate} />
-        {/* </div> */}
-
 
       </UserContext.Provider>
     </Router>
