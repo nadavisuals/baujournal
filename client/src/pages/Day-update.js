@@ -104,6 +104,7 @@ class DayUpdate extends Component {
 
             {this.state.error && (
               <ErrorNotice
+                key={""}
                 message={this.state.error}
                 clearError={() =>
                   this.setState({
