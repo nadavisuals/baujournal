@@ -10,7 +10,7 @@
 - Im Ordner 'server' das File .env.dev zu .env umbenennen und Inhalt anpassen. 
   (Beim download von OpenOlat muss nur Inhalt von .env angepasst werden)
     - Bei 'DATABASE' den entsprechenden Datenbank MongoDB Pfad einfügen. (Lokal oder auf MongoDB Atlas)
-    - Bei 'JWT_SECRET' irgend ein Passwort eingeben
+    - Bei 'JWT_SECRET' irgend ein beliebiges Passwort einfügen
 - Um die App zu nutzen muss man sich einloggen. Hierfür muss in der MongoDB Datenbank ein User und Passwort angelegt werden. 
     - Zum Beispiel mit den API Clients Postman oder Insomnia folgenden Post request absenden:
 
@@ -18,8 +18,8 @@ Post: http://localhost:5001/user/register <br />
 ```
 {
     "email": "example@test.com",
-    "password": "example@test",
-    "passwordCheck": "example@test"
+    "password": "examplePassword",
+    "passwordCheck": "examplePassword"
 }
 ```
 
