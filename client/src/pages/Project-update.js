@@ -27,6 +27,7 @@ const ProjectUpdate = (props) => {
       .then((res) => {
         setError(res.data.msg);
         if (res.data.msg === "Projekt aktualisiert!") {
+         //  setError("")
           history.goBack();
         }
       });
