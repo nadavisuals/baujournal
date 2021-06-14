@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { Button} from "react-bootstrap";
 import axios from "axios";
 import NavBar from "../components/NavBar";
 import constants from "../constants/constants";
@@ -27,7 +27,12 @@ const Project = (props) => (
       <Button
         variant="link"
         onClick={() => {
-          props.deleteProject(props.projects._id);
+          const confirmBox = window.confirm(
+            "Eintrag löschen?"
+          )
+          if (confirmBox === true) {
+            props.deleteProject(props.projects._id);
+          }          
         }}
       >
         Löschen

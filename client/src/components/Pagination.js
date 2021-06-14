@@ -13,7 +13,12 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
       <ul className="pagination mt-5">
         {pageNumbers.map((number) => (
           <li key={number} className="page-item">
-            <Button variant="outline-primary" onClick={() => paginate(number)}>
+            <Button 
+              variant="outline-primary" 
+              onClick={(e) => {
+                paginate(number);
+                e.preventDefault()
+                }}>
               {" "}
               {number}{" "}
             </Button>{" "}
@@ -23,6 +28,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
       </ul>
     </nav>
   );
+
 };
 
 export default Pagination;
