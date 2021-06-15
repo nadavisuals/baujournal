@@ -23,6 +23,6 @@ function DayChooseProject() {
       </div>
     </div>
   );
-};
+}
 
 export default DayChooseProject;

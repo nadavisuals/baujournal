@@ -11,6 +11,7 @@
   (Beim download von OpenOlat muss nur Inhalt von .env angepasst werden)
     - Bei 'DATABASE' den entsprechenden Datenbank MongoDB Pfad einfügen. (Lokal oder auf MongoDB Atlas)
     - Bei 'JWT_SECRET' irgend ein beliebiges Passwort einfügen
+- Unter client/src/constants/constants.js die backend_url: auf "http://localhost:5001" umstellen
 - Um die App zu nutzen muss man sich einloggen. Hierfür muss in der MongoDB Datenbank ein User und Passwort angelegt werden. 
     - Zum Beispiel mit den API Clients Postman oder Insomnia folgenden Post request absenden:
 

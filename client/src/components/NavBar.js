@@ -27,7 +27,9 @@ function NavBar() {
     >
       <div className="container">
         <Navbar.Brand>
-          <Link className="navbar-brand" to="/day-choose-project">PITBAUjOURNAL</Link>
+          <Link className="navbar-brand" to="/day-choose-project">
+            PITBAUjOURNAL
+          </Link>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -35,14 +37,18 @@ function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto"></Nav>
           <Nav>
-            <Nav.Link as={NavLink} to="/day-choose-project">Baujournal{" "}</Nav.Link>
-            <Nav.Link as={NavLink} to="/projects">Projekte{" "}</Nav.Link>
+            <Nav.Link as={NavLink} to="/day-choose-project">
+              Baujournal{" "}
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/projects">
+              Projekte{" "}
+            </Nav.Link>
             <Nav.Link onClick={() => logout()}>Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </div>
     </Navbar>
   );
-};
+}
 
 export default NavBar;

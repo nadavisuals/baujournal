@@ -41,7 +41,7 @@ function DropDown({ nr, title }) {
             return (
               <Link
                 key={item._id}
-                className="dropdown-item ml-2"
+                className="dropdown-item ml-2 mr-2"
                 onClick={() => {
                   setprojectNR(item.projectNr);
                   setProjectTitle(item.projectTitle);
