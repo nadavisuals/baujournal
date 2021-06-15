@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
-const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
+function Pagination({ postsPerPage, totalPosts, paginate }) {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {

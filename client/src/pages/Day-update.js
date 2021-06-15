@@ -82,12 +82,10 @@ class DayUpdate extends Component {
       safety: this.state.safety,
     };
 
-    // const res = 
-    await axios.post(constants.backend_url + "/days/update/" + this.state.dayId, NewDay)
-    //console.log(res.data)
-    // this.setState({
-    //   error: "Successfully Updated",
-    // });
+    await axios.post(
+      constants.backend_url + "/days/update/" + this.state.dayId,
+      NewDay
+    );
     this.props.history.goBack();
   }
 
@@ -105,7 +103,6 @@ class DayUpdate extends Component {
 
             {this.state.error && (
               <ErrorNotice
-                // key={"index"}
                 message={this.state.error}
                 clearError={() =>
                   this.setState({
@@ -120,10 +117,11 @@ class DayUpdate extends Component {
                 <div>
                   <Form.Group>
                     <Form.Label>Datum</Form.Label>
-                    
+
                     <input
-                    key={"index"}
-                      readOnly value={this.state.makeDate}
+                      key={"index"}
+                      readOnly
+                      value={this.state.makeDate}
                       style={{ width: "50%" }}
                       type="date"
                       className="form-control"
@@ -134,7 +132,7 @@ class DayUpdate extends Component {
                       <Col>
                         <Form.Label>Uhrzeit von:</Form.Label>
                         <input
-                        key={"index"}
+                          key={"index"}
                           value={this.state.timeFrom}
                           onChange={(e) =>
                             this.setState({
@@ -149,7 +147,7 @@ class DayUpdate extends Component {
                       <Col>
                         <Form.Label>Uhrzeit bis:</Form.Label>
                         <input
-                        key={"index"}
+                          key={"index"}
                           value={this.state.timeUntil}
                           onChange={(e) =>
                             this.setState({
@@ -167,7 +165,7 @@ class DayUpdate extends Component {
                     <Form.Label>Wetter:</Form.Label>
 
                     <select
-                    key={"index"}
+                      key={"index"}
                       onChange={(e) =>
                         this.setState({
                           weather: e.target.value,
@@ -186,7 +184,7 @@ class DayUpdate extends Component {
                   <Form.Group style={{ maxWidth: "360px" }}>
                     <Form.Label>Aussenemperatur C&#730;:</Form.Label>
                     <Form.Control
-                    key={"index"}
+                      key={"index"}
                       type="number"
                       placeholder="..."
                       value={this.state.temperature}
@@ -200,25 +198,11 @@ class DayUpdate extends Component {
                   <Form.Group>
                     <Form.Label>Anwesende Firmen:</Form.Label>
                     <Form.Control
-                    key={"index"}
+                      key={"index"}
                       value={this.state.workers}
                       onChange={(e) =>
                         this.setState({
                           workers: e.target.value,
-                        })
-                      }
-                      type="text"
-                      placeholder="..."
-                    />
-                  </Form.Group>
-                  <Form.Group>
-                    <Form.Label>Stand der Arbeit:</Form.Label>
-                    <Form.Control
-                    key={"index"}
-                      value={this.state.workProgress}
-                      onChange={(e) =>
-                        this.setState({
-                          workProgress: e.target.value,
                         })
                       }
                       as="textarea"
@@ -227,9 +211,24 @@ class DayUpdate extends Component {
                     />
                   </Form.Group>
                   <Form.Group>
+                    <Form.Label>Stand der Arbeit:</Form.Label>
+                    <Form.Control
+                      key={"index"}
+                      rows={3}
+                      value={this.state.workProgress}
+                      onChange={(e) =>
+                        this.setState({
+                          workProgress: e.target.value,
+                        })
+                      }
+                      as="textarea"
+                      placeholder="..."
+                    />
+                  </Form.Group>
+                  <Form.Group>
                     <Form.Label>Organisatorisches:</Form.Label>
                     <Form.Control
-                    key={"index"}
+                      key={"index"}
                       value={this.state.workPlaning}
                       onChange={(e) =>
                         this.setState({
@@ -244,14 +243,15 @@ class DayUpdate extends Component {
                   <Form.Group>
                     <Form.Label>BauKG:</Form.Label>
                     <Form.Control
-                    key={"index"}
+                      key={"index"}
                       value={this.state.safety}
                       onChange={(e) =>
                         this.setState({
                           safety: e.target.value,
                         })
                       }
-                      type="text"
+                      as="textarea"
+                      rows={3}
                       placeholder="..."
                     />
                   </Form.Group>
@@ -270,11 +270,11 @@ class DayUpdate extends Component {
                         </Link>
                         <div className="p-2"></div>
                         <Button
-                        key={"index"}
+                          key={"index"}
                           onClick={(e) => this.handleSubmit(e)}
                           variant="primary"
                         >
-                          Update
+                          Speichern
                         </Button>
                       </Col>
                     </Row>

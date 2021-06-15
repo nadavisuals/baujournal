@@ -7,7 +7,7 @@ import ErrorNotice from "../components/ErrorNotice";
 import constants from "../constants/constants";
 import "../css/style.css";
 
-export default function Login() {
+function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [error, setError] = useState();
@@ -80,3 +80,5 @@ export default function Login() {
     </div>
   );
 }
+
+export default Login;

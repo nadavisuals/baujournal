@@ -4,7 +4,7 @@ import axios from "axios";
 import constants from "../constants/constants";
 import { Form, Row, Col } from "react-bootstrap";
 
-const DropDown = ({ nr, title }) => {
+function DropDown({ nr, title }) {
   const [allProjects, setAllProjects] = useState([]);
   const [projectNR, setprojectNR] = useState("");
   const [projectTitle, setProjectTitle] = useState("");
@@ -39,7 +39,7 @@ const DropDown = ({ nr, title }) => {
           .sort((a, b) => a.projectNr - b.projectNr)
           .map((item) => {
             return (
-              <Link 
+              <Link
                 key={item._id}
                 className="dropdown-item ml-2"
                 onClick={() => {
@@ -65,21 +65,30 @@ const DropDown = ({ nr, title }) => {
           <Form.Label column sm="2">
             Projekt Nr.:
           </Form.Label>
+
           <Col sm="10">
-            <Form.Label column sm="2"> {projectNR} </Form.Label>
+            <Form.Label column sm="2">
+              {" "}
+              {projectNR}{" "}
+            </Form.Label>
           </Col>
         </Form.Group>
+
         <Form.Group as={Row} controlId="formPlaintextEmail">
           <Form.Label column sm="2">
             Projekt Titel:
           </Form.Label>
+
           <Col sm="10">
-            <Form.Label column sm="2"> {projectTitle} </Form.Label>
+            <Form.Label column sm="2">
+              {" "}
+              {projectTitle}{" "}
+            </Form.Label>
           </Col>
         </Form.Group>
       </div>
     </div>
   );
-};
+}
 
 export default DropDown;
