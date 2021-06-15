@@ -8,7 +8,7 @@ import constants from "../constants/constants";
 import ErrorNotice from "../components/ErrorNotice";
 import "../css/style.css";
 
-const DayCreate = () => {
+function DayCreate() {
   const history = useHistory();
   var date = new Date().toISOString().split("T")[0];
 
@@ -44,7 +44,7 @@ const DayCreate = () => {
     axios.post(constants.backend_url + "/days/add", NewDay).then((res) => {
       setError(res.data.msg);
       if (res.data.msg === "New Day added!") {
-        setError("")
+        setError("");
         history.goBack();
       }
     });
@@ -124,7 +124,8 @@ const DayCreate = () => {
             <Form.Label>Anwesende Firmen:</Form.Label>
             <Form.Control
               onChange={(e) => setWorkers(e.target.value)}
-              type="text"
+              as="textarea"
+              rows={3}
               placeholder="..."
             />
           </Form.Group>
@@ -150,7 +151,8 @@ const DayCreate = () => {
             <Form.Label>BauKG:</Form.Label>
             <Form.Control
               onChange={(e) => setSafety(e.target.value)}
-              type="text"
+              as="textarea"
+              rows={3}
               placeholder="..."
             />
           </Form.Group>
@@ -171,10 +173,9 @@ const DayCreate = () => {
           </Form.Group>
         </Form>
       </div>
-      {/* Footer */}
       <div></div>
     </div>
   );
-};
+}
 
 export default DayCreate;

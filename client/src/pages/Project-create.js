@@ -6,13 +6,13 @@ import NavBar from "../components/NavBar";
 import constants from "../constants/constants";
 import ErrorNotice from "../components/ErrorNotice";
 
-const ProjectCreate = () => {
+function ProjectCreate() {
   const history = useHistory();
   const [projectNR, setProjectNR] = useState("");
   const [projectTitle, setProjectTitle] = useState("");
   const [error, setError] = useState();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e)  => {
     e.preventDefault();
     const NewProject = {
       projectNr: projectNR,
@@ -23,7 +23,7 @@ const ProjectCreate = () => {
       return setError("Bitte alle Felder ausfüllen!");
     }
 
-    axios
+   await axios
       .post(constants.backend_url + "/projects/add", NewProject)
       .then((res) => {
         setError(res.data.msg);
@@ -37,12 +37,13 @@ const ProjectCreate = () => {
   return (
     <div>
       <NavBar />
-
-      <div className="container" style={{ marginTop: "20px" }}></div>
-
+      <br />
       <div className="container content">
         <div>
-          <h5 className="text-muted">Neues Projekt erstellen</h5>
+          <h5>Neues Projekt erstellen</h5>
+          <div
+            style={{ borderTop: "1px solid lightgray ", marginBottom: 20 }}>
+          </div>
         </div>
 
         {error && (

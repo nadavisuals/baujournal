@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/error.css";
 
-export default function ErrorNotice(props) {
+function ErrorNotice(props) {
   return (
     <div className="error-notice">
       <span>{props.message}</span>
@@ -9,3 +9,4 @@ export default function ErrorNotice(props) {
     </div>
   );
 }
+export default ErrorNotice;

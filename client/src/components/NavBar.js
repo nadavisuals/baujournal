@@ -4,7 +4,7 @@ import { Link, NavLink, useHistory } from "react-router-dom";
 import userContext from "../context/userContext";
 import "../css/navbar.css";
 
-const NavBar = () => {
+function NavBar() {
   const { setUserData } = useContext(userContext);
   const history = useHistory();
 

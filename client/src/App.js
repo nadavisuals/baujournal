@@ -52,16 +52,30 @@ function App() {
   return (
     <Router>
       <UserContext.Provider value={{ userData, setUserData }}>
-
-          <Route path="/" exact component={Login} />
-          <Route path="/day-choose-project" exact component={DayChooseProject} />
-          <Route path="/day-project-details/:projectNr/:projectTitle" exact component={DayProjectDetails} />
-          <Route path="/day-create/:projectNr/:projectTitle" exact component={DayCreate} />
-          <Route path="/projects" exact component={ProjectList} />
-          <Route path="/create-project" exact component={ProjectCreate} />
-          <Route path="/update-project/:projectNr/:projectTitle/:projectId" exact component={ProjectUpdate} />
-          <Route path="/update-day/:projectNr/:projectTitle/:id" exact component={DayUpdate} />
-
+        <Route path="/" exact component={Login} />
+        <Route path="/day-choose-project" exact component={DayChooseProject} />
+        <Route
+          path="/day-project-details/:projectNr/:projectTitle"
+          exact
+          component={DayProjectDetails}
+        />
+        <Route
+          path="/day-create/:projectNr/:projectTitle"
+          exact
+          component={DayCreate}
+        />
+        <Route path="/projects" exact component={ProjectList} />
+        <Route path="/create-project" exact component={ProjectCreate} />
+        <Route
+          path="/update-project/:projectNr/:projectTitle/:projectId"
+          exact
+          component={ProjectUpdate}
+        />
+        <Route
+          path="/update-day/:projectNr/:projectTitle/:id"
+          exact
+          component={DayUpdate}
+        />
       </UserContext.Provider>
     </Router>
   );

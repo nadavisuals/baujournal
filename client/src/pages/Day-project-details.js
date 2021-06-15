@@ -11,7 +11,6 @@ import "../css/style.css";
 function DayList() {
   let { projectNr, projectTitle } = useParams();
   const [allDays, setAllDays] = useState([]);
-
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(3);
 
@@ -27,11 +26,8 @@ function DayList() {
   }, [projectNr]);
 
   const handleDelete = async (id) => {
-   await axios
-      .delete(constants.backend_url + "/days/" + id)
-      // .then((res) => console.log(res.data));
-    //window.location.reload(false);
-    window.location.replace(window.location.href)
+    await axios.delete(constants.backend_url + "/days/" + id);
+    window.location.replace(window.location.href);
   };
 
   const indexOfLastPost = currentPage * postsPerPage;
@@ -145,14 +141,12 @@ function DayList() {
                               className="p-1"
                               variant="primary"
                               size="lg"
-                              //  onClick={() => handleDelete(item._id)}
                               onClick={() => {
-                                const confirmBox = window.confirm(
-                                  "Eintrag löschen?"
-                                )
+                                const confirmBox =
+                                  window.confirm("Eintrag löschen?");
                                 if (confirmBox === true) {
                                   handleDelete(item._id);
-                                }          
+                                }
                               }}
                             >
                               Löschen

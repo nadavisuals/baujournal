@@ -15,20 +15,19 @@ const ProjectUpdate = (props) => {
   const [getProjectTitle, setProjectTitle] = useState(projectTitle);
   const [error, setError] = useState();
 
-  const handleSave = (e) => {
+  const handleSave = async (e) => {
     e.preventDefault();
     const NewProject = {
       projectNr: getProjectNR,
       projectTitle: getProjectTitle,
     };
 
-    axios
+  await axios
       .post(constants.backend_url + "/projects/update/" + projectId, NewProject)
       .then((res) => {
         setError(res.data.msg);
         if (res.data.msg === "Projekt aktualisiert!") {
-         //  setError("")
-          history.goBack();
+        history.goBack();
         }
       });
   };
@@ -36,11 +35,13 @@ const ProjectUpdate = (props) => {
   return (
     <div>
       <NavBar />
-      <div className="container" style={{ marginTop: "20px" }}></div>
-
+      <br />
       <div className="container content">
-        <div>
-          <h5 className="text-muted">Projekt bearbeiten</h5>
+      <div>
+          <h5>Projekt bearbeiten</h5>
+          <div
+            style={{ borderTop: "1px solid lightgray ", marginBottom: 20 }}>
+          </div>
         </div>
 
         {error && (
@@ -88,8 +89,6 @@ const ProjectUpdate = (props) => {
           </Form>
         </div>
       </div>
-      {/* Footer */}
-      <div></div>
     </div>
   );
 };

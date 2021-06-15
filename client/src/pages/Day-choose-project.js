@@ -4,7 +4,7 @@ import NavBar from "../components/NavBar";
 import DropDown from "../components/DropDown";
 import "../css/style.css";
 
-const DayChooseProject = () => {
+function DayChooseProject() {
   const history = useHistory();
   useEffect(() => {
     if (localStorage.getItem("auth-token") === "") {
