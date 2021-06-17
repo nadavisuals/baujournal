@@ -1,6 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
+test('renders PITBAUjOURNAL Text', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/PITBAUjOURNAL/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
 test('renders user text', () => {
   render(<App />);
   const linkElement = screen.getByText(/Benutzer/i);
@@ -13,8 +19,14 @@ test('renders password text', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-test('renders logout text', () => {
+test('renders Login text', () => {
   render(<App />);
   const linkElement = screen.getByText(/Login/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders Baujournal text', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/Baujournal/i);
   expect(linkElement).toBeInTheDocument();
 });
