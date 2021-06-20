@@ -16,7 +16,7 @@
     - Hierfür muss der Server laufen. Via terminal im Ordner 'server' `$ npm start` ausführen
     - Danach zum Beispiel mit den API Clients Postman oder Insomnia folgenden JSON Post request absenden:
 
-   ![Postman Beispiel](https://www.dropbox.com/s/vi0nk07fb5wc118/PostmanUserRegistration_01.JPG?dl=0)
+![Postman Beispiel](https://user-images.githubusercontent.com/44897257/122690850-18b76c00-d22c-11eb-91b0-93e33e27fba0.JPG)
 
 Post: http://localhost:5001/user/register <br />
 ```
