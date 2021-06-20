@@ -12,8 +12,11 @@
     - Bei 'DATABASE' den entsprechenden Datenbank MongoDB Pfad einfügen. (Lokal oder auf MongoDB Atlas)
     - Bei 'JWT_SECRET' irgend ein beliebiges Passwort einfügen
 - Unter client/src/constants/constants.js die backend_url: auf "http://localhost:5001" umstellen
-- Um die App zu nutzen muss man sich einloggen. Hierfür muss in der MongoDB Datenbank ein User und Passwort angelegt werden. 
-    - Zum Beispiel mit den API Clients Postman oder Insomnia folgenden Post request absenden:
+- Um die App zu nutzen muss man sich einloggen. Hierfür muss in der MongoDB Datenbank ein User und Passwort angelegt werden.
+    - Hierfür muss der Server laufen. Via terminal im Ordner 'server' `$ npm start` ausführen
+    - Danach zum Beispiel mit den API Clients Postman oder Insomnia folgenden JSON Post request absenden:
+
+![Postman Beispiel](https://user-images.githubusercontent.com/44897257/122690850-18b76c00-d22c-11eb-91b0-93e33e27fba0.JPG)
 
 Post: http://localhost:5001/user/register <br />
 ```
@@ -27,7 +30,7 @@ Post: http://localhost:5001/user/register <br />
 ## App starten
 - Via terminal im Ordner 'server' `$ npm start` oder `$ nodemon server` ausführen
 - Via terminal im Ordner 'client' `$ npm start` ausführen
-
+- Danach Anmelden mit erstelltem User und Passwort
 
 ## Live Demo
 Eine Demo Version der App ist unter folgendem Link zu finden:<br />
