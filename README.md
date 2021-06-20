@@ -25,7 +25,7 @@ Post: http://localhost:5001/user/register <br />
 ```
 
 ## App starten
-- Via terminal im Ordner 'server' `$ npm start` ausführen
+- Via terminal im Ordner 'server' `$ npm start` oder `$ nodemon server` ausführen
 - Via terminal im Ordner 'client' `$ npm start` ausführen
 
 
